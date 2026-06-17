@@ -1,6 +1,6 @@
 [project]
 name = "project-solaris"
-version = "0.1.0"
+version = "1.0.0"
 description = "Project Solaris MVP: physics-informed multimodal solar flare early warning replay demo."
 requires-python = ">=3.11"
 dependencies = [
