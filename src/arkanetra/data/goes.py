@@ -57,7 +57,8 @@ def _fetch_swpc_json(url: str, timeout_seconds: int = 30) -> list[dict]:
         try:
             req = urllib.request.Request(url, headers={"User-Agent": "ArkaNetra/1.0.0"})
             with urllib.request.urlopen(req, timeout=timeout_seconds) as resp:
-                return json.loads(resp.read().decode("utf-8"))
+                payload = resp.read().decode("utf-8").replace("\x00", "").strip()
+                return json.loads(payload)
         except urllib.error.HTTPError as exc:
             last_error = exc
             if exc.code == 404:

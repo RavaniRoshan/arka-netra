@@ -26,7 +26,7 @@ RATE_LIMIT_WINDOW = 60
 _rate_limit_store: dict[str, list[float]] = defaultdict(list)
 
 VALID_ALERT_STATES = {"NORMAL", "WATCH", "WARNING", "CRITICAL", "RESOLVED", "UNCERTAIN"}
-VALID_SCENARIOS = {"baseline", "high_activity", "quiet_sun", "ensemble"}
+LEGACY_SCENARIOS = {"baseline", "high_activity", "quiet_sun", "ensemble"}
 
 
 class RateLimiter:
@@ -183,18 +183,20 @@ def get_predictions(
     mission_state: str | None = Query(None, description="Filter by mission state"),
     limit: int = Query(100, ge=1, le=10000, description="Max records to return"),
 ) -> dict[str, Any]:
-    if scenario and scenario not in VALID_SCENARIOS:
+    df = load_predictions()
+
+    valid_scenarios = set(df["scenario"].dropna().astype(str).unique()).union(LEGACY_SCENARIOS) if not df.empty else LEGACY_SCENARIOS
+    if scenario and scenario not in valid_scenarios:
         raise HTTPException(
             status_code=400,
-            detail=f"Invalid scenario '{scenario}'. Valid: {sorted(VALID_SCENARIOS)}",
+            detail=f"Invalid scenario '{scenario}'. Valid: {sorted(valid_scenarios)}",
         )
 
-    df = load_predictions()
     if df.empty:
         return {"predictions": [], "total": 0, "filtered": 0}
 
     filtered = df
-    if scenario:
+    if scenario and scenario in set(df["scenario"].dropna().astype(str).unique()):
         filtered = filtered[filtered["scenario"] == scenario]
     if mission_state:
         filtered = filtered[filtered["mission_state"] == mission_state]
