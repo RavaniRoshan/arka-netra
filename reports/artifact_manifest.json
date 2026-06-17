@@ -5,7 +5,7 @@
   "mission_mode": "synthetic",
   "soft_source": "SYNTHETIC",
   "hard_source": "NONE",
-  "generated_at_utc": "2026-06-17T09:36:28.539341+00:00",
+  "generated_at_utc": "2026-06-17T09:43:36.012512+00:00",
   "dataset_rows": 1728,
   "prediction_rows": 1728,
   "scenarios": [
@@ -24,14 +24,14 @@
   "staleness": {
     "score": 40.0,
     "factors": {
-      "age_hours": 3873.6912605722223,
+      "age_hours": 3873.810003125,
       "age_score": 100
     },
     "is_stale": false,
     "details": {
       "last_timestamp": "2026-01-06 23:55:00+00:00",
       "rows": 1728,
-      "age_hours": 3873.6912605722223,
+      "age_hours": 3873.810003125,
       "quality_fraction": 1.0
     }
   },

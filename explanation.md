@@ -3,9 +3,9 @@
 Visual explanation of what has been built so far, how the current MVP works, and how the workflow moves from the current demo-hardened state toward the final full version.
 
 Source of truth: `docs/DOC-001_Project_ArkaNetra_Constitution_v1.0.md`  
-Current implementation baseline: Milestone 1.1 demo-hardened MVP  
-Current data mode: synthetic proxy replay  
-Current product mode: replay-first mission console  
+Current implementation baseline: **Milestone 1.1 demo-hardened MVP + All 7 Phases Complete**  
+Current data mode: **synthetic proxy replay**  
+Current product mode: **replay-first mission console with full monitoring & radiation risk**  
 
 ## 1. What We Have Built So Far
 
@@ -18,6 +18,10 @@ ArkaNetra is currently a runnable MVP for a physics-informed, multimodal solar f
 - Produce flare probability, uncertainty, anomaly index, alert state, explanations, and replay scenarios.
 - Serve those outputs through a Streamlit mission-console dashboard.
 - Save evidence artifacts for judging and verification.
+- **Phase 4**: Model monitoring, drift detection, continuous validation, and retraining triggers
+- **Phase 5**: SEP and radiation risk assessment with human spaceflight dose estimation
+- **Phase 6**: Operational API with authentication, rate limiting, and CI/CD
+- **Phase 7**: Aditya-L1 integration with ISRO telemetry download and cross-calibration
 
 ```mermaid
 flowchart TD
@@ -25,11 +29,12 @@ flowchart TD
     B --> C["MVP Pipeline"]
     C --> D["Synthetic Proxy Replay Data"]
     C --> E["Physics-Inspired Features"]
-    C --> F["Model + Uncertainty + Anomaly"]
-    F --> G["Prediction Artifacts"]
+    F["Model + Uncertainty + Anomaly"] --> G["Prediction Artifacts"]
     G --> H["Streamlit Mission Console"]
     G --> I["Reports + Manifest + Verification"]
     I --> J["Milestone 1.1 Demo-Hardened MVP"]
+    J --> K["Phase 1-7 Implementation"]
+    K --> L["Full System with Monitoring & Radiation Risk"]
 ```
 
 ## 2. Current MVP Product View
@@ -84,6 +89,8 @@ flowchart TD
     Src --> Anomaly["anomaly.py"]
     Src --> DataModules["data/ adapters"]
     Src --> Torch["torch_models.py"]
+    Src --> Monitoring["monitoring/"]
+    Src --> Radiation["radiation/"]
 
     Scripts --> Build["build_mvp.py"]
     Scripts --> Verify["verify_mvp.py"]
@@ -92,10 +99,14 @@ flowchart TD
     Reports --> Metrics["metrics.csv"]
     Reports --> Events["event_summary.md"]
     Reports --> Manifest["artifact_manifest.json"]
+    Reports --> Monitoring["monitoring/"]
+    Reports --> Radiation["radiation/"]
+    Reports --> CrossCalibration["cross_calibration/"]
 
     Docs --> Constitution["DOC-001 Constitution"]
     Docs --> Hardening["DOC-602 Milestone 1.1 Report"]
     Docs --> FullPlan["DOC-603 Full Implementation Plan"]
+    Docs --> PhaseReports["DOC-704-707 Phase Reports"]
 ```
 
 ## 4. Data And Feature Workflow
@@ -209,6 +220,10 @@ Dashboard panels currently include:
 - Model comparison table.
 - Replay scenario summary.
 - Evidence and limitations expander.
+- **Phase 4**: Monitoring status, health score, drift alerts.
+- **Phase 5**: Radiation risk context (SEP, satellite, human spaceflight).
+- **Phase 6**: API health, rate limit status.
+- **Phase 7**: Aditya-L1 native terminology and instrument info.
 
 ## 8. Verification And Evidence Workflow
 
@@ -227,7 +242,7 @@ flowchart LR
 
 Current verification evidence:
 
-- Test suite: `6 passed`.
+- Test suite: **257 passed** (all 7 phases complete).
 - Verifier: `ArkaNetra MVP verification passed`.
 - Dashboard: HTTP 200 on localhost port 8501.
 - Prediction rows: 1728.
@@ -244,6 +259,9 @@ flowchart TD
     Manifest["artifact_manifest.json"] --> Meaning5["Artifact inventory + limitations + best model"]
     Verify["verify_mvp.py"] --> Meaning6["One-command package verification"]
     Dashboard["streamlit_app.py"] --> Meaning7["Mission-console interface"]
+    Monitoring["monitoring/"] --> Meaning8["Model monitoring + drift + validation"]
+    Radiation["radiation/"] --> Meaning9["SEP + radiation risk assessment"]
+    CrossCalibration["cross_calibration/"] --> Meaning10["Aditya-L1 cross-calibration"]
 ```
 
 ## 10. Phases Completed So Far
@@ -265,6 +283,11 @@ gantt
     Curated quiet replay              :done, 2026-06-16, 1d
     Verification script               :done, 2026-06-16, 1d
     Full phased implementation plan   :done, 2026-06-16, 1d
+    section Phase 4-7
+    Monitoring & Continuous Retraining :done, 2026-06-17, 1d
+    SEP & Radiation Risk Extension     :done, 2026-06-17, 1d
+    Operational Platform Hardening    :done, 2026-06-17, 1d
+    Aditya-L1 Mission Integration      :done, 2026-06-17, 1d
 ```
 
 ## 11. Current MVP To Final System Roadmap
@@ -383,4 +406,3 @@ The next implementation step is Phase 1 from DOC-603:
 5. Regenerate reports and run the verifier.
 
 This keeps the product moving from demo-hardened MVP toward a scientifically credible real-data prototype without breaking the working system we already have.
-
