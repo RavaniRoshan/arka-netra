@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data
+      - ./models:/app/models
+      - ./reports:/app/reports
+    environment:
+      - PYTHONPATH=/app/src
+      - SOLARIS_API_KEY=${SOLARIS_API_KEY:-}
+      - SOLARIS_RATE_LIMIT_RPM=${SOLARIS_RATE_LIMIT_RPM:-60}
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+  dashboard:
+    build: .
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./data:/app/data
+      - ./models:/app/models
+      - ./reports:/app/reports
+    environment:
+      - PYTHONPATH=/app/src
+    command: streamlit run app/streamlit_app.py --server.port 8501 --server.address 0.0.0.0

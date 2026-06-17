@@ -1,0 +1,91 @@
+project:
+  name: Project Solaris
+  version: mvp-0.1
+  mode: replay
+data:
+  mode: synthetic
+  goes_source: auto
+  goes_event_window_hours: 48
+  hard_source: auto
+  rhessi_energy_band: "25-100 keV"
+  start: "2026-01-01T00:00:00Z"
+  periods: 1728
+  cadence_minutes: 5
+  forecast_horizon_minutes: 120
+  lookback_steps: 24
+  random_seed: 42
+  aditya_l1:
+    soft_source: solexs_sample
+    hard_source: hel1os_sample
+    hel1os_energy_band: "25-100 keV"
+    payload_metadata: true
+  real_proxy:
+    event_window_hours: 48
+    hard_source: rhessi
+    start: "2017-09-06T00:00:00Z"
+    periods: 1728
+features:
+  smoothing_window: 3
+  rolling_window: 12
+  hardness_epsilon: 1.0e-10
+  multi_horizon_horizons: [30, 60, 120]
+model:
+  architecture: sklearn
+  random_seed: 42
+  neupert_lambda: 0.18
+  mc_dropout_passes: 40
+  warning_threshold: 0.55
+  gru:
+    hidden_dim: 64
+    num_layers: 2
+    dropout: 0.25
+    lookback_steps: 24
+    batch_size: 64
+    learning_rate: 0.001
+    epochs: 50
+    ae_hidden_dim: 32
+alert_policy:
+  watch_probability: 0.35
+  warning_probability: 0.55
+  critical_probability: 0.78
+  anomaly_watch: 45
+  anomaly_supporting_warning: 70
+dashboard:
+  default_scenario: M-class warning replay
+  refresh_seconds: 0.25
+  analysis_mode: true
+  model_comparison_mode: true
+  multi_horizon_display: true
+  event_summary_export: true
+  threshold_policy_selector: true
+radiation:
+  sep_enabled: false
+  particle_source: none
+  satellite_risk_enabled: false
+  satellite_orbit: geostationary
+registry:
+  enabled: false
+  path: models/registry
+archive:
+  enabled: false
+  path: archive
+  max_runs: 100
+monitoring:
+  drift_threshold: 0.15
+  consecutive_drift_count: 3
+  max_age_hours: 168.0
+  min_runs_before_retrain: 5
+  retrain_trigger: manual
+
+evaluation:
+  event_based_splits: true
+  calibration_metrics: true
+  lead_time_analysis: true
+  false_alarm_analysis: true
+  ablation_studies: true
+  explanation_evaluation: true
+  multi_horizon_evaluation: true
+  roc_auc: true
+  pr_auc: true
+  brier_score: true
+  calibration_error: true

@@ -1,0 +1,15 @@
+{
+  "baseline_f1": 0.9,
+  "baseline_roc_auc": 0.9986102719033233,
+  "records": [
+    {
+      "timestamp": "2026-06-17T05:54:15.240027+00:00",
+      "model_version": "mvp-0.1",
+      "f1_score": 0.9044585987261147,
+      "roc_auc": 0.9991691873361565,
+      "n_samples": 1728,
+      "passed": true,
+      "degradation": -0.004458598726114649
+    }
+  ]
+}

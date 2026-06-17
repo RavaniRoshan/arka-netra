@@ -1,0 +1,31 @@
+[project]
+name = "project-solaris"
+version = "0.1.0"
+description = "Project Solaris MVP: physics-informed multimodal solar flare early warning replay demo."
+requires-python = ">=3.11"
+dependencies = [
+  "numpy",
+  "pandas",
+  "pyarrow",
+  "pyyaml",
+  "scikit-learn",
+  "plotly",
+  "streamlit",
+  "pytest",
+  "torch",
+  "astropy",
+  "fastapi",
+  "uvicorn",
+]
+
+[project.optional-dependencies]
+dev = [
+  "ruff",
+  "mypy",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+addopts = "-q"
+

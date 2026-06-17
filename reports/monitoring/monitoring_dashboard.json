@@ -1,0 +1,56 @@
+{
+  "generated_at": "2026-06-17T05:54:15.246141+00:00",
+  "orchestrator": {
+    "retrain_trigger_mode": "manual",
+    "drift_threshold": 0.15,
+    "trigger_status": {
+      "last_retrain_at": null,
+      "consecutive_drifts": 0,
+      "drift_threshold": 0.15,
+      "drift_history_length": 2
+    },
+    "total_cycles": 1,
+    "drift_summary": {
+      "detected": 0,
+      "clear": 1
+    },
+    "recent_cycles": [
+      {
+        "timestamp": "2026-06-17T05:54:15.240661+00:00",
+        "drift_detected": false,
+        "drift_score": 0.0,
+        "retrain_triggered": false,
+        "validation_passed": true,
+        "duration_seconds": 0.004427
+      }
+    ],
+    "archive_available": false
+  },
+  "validation": {
+    "total_validations": 1,
+    "baseline_f1": 0.9,
+    "baseline_roc_auc": 0.9986102719033233,
+    "f1_threshold": 0.1,
+    "mean_f1": 0.9044585987261147,
+    "std_f1": 0.0,
+    "min_f1": 0.9044585987261147,
+    "max_f1": 0.9044585987261147,
+    "pass_rate": 1.0,
+    "recent_results": [
+      {
+        "timestamp": "2026-06-17T05:54:15.240027+00:00",
+        "model_version": "mvp-0.1",
+        "f1_score": 0.9044585987261147,
+        "roc_auc": 0.9991691873361565,
+        "n_samples": 1728,
+        "passed": true,
+        "degradation": -0.004458598726114649
+      }
+    ]
+  },
+  "overall_health": "healthy",
+  "health_score": 100,
+  "issues": [
+    "Auto-retrain disabled (manual mode)"
+  ]
+}

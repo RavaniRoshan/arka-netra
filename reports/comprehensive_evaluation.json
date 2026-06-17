@@ -1,0 +1,183 @@
+{
+  "classification_metrics": {
+    "threshold": 0.55,
+    "brier_score": 0.005751590629735782,
+    "ece": 0.007793099001394642,
+    "false_alarm_rate": 0.006654567453115548
+  },
+  "lead_time": {
+    "n_warning_rows": 82,
+    "n_labeled_warning_rows": 71,
+    "median_lead_minutes": 55.0,
+    "mean_lead_minutes": 57.11267605633803,
+    "min_lead_minutes": 0.0,
+    "max_lead_minutes": 120.0,
+    "std_lead_minutes": 35.00675416290595,
+    "percentile_25": 27.5,
+    "percentile_75": 85.0,
+    "fraction_within_30min": 0.28,
+    "warnings_within_30min": 21,
+    "fraction_within_60min": 0.52,
+    "warnings_within_60min": 39,
+    "fraction_within_120min": 0.9466666666666667,
+    "warnings_within_120min": 71
+  },
+  "false_alarm_analysis": {
+    "thresholds": [
+      {
+        "threshold": 0.3,
+        "false_alarm_rate": 0.009679370840895343,
+        "false_alarms": 16,
+        "true_negatives": 1637,
+        "recall": 0.9866666666666667,
+        "precision": 0.8222222222222222
+      },
+      {
+        "threshold": 0.4,
+        "false_alarm_rate": 0.007864488808227465,
+        "false_alarms": 13,
+        "true_negatives": 1640,
+        "recall": 0.9733333333333334,
+        "precision": 0.8488372093023255
+      },
+      {
+        "threshold": 0.5,
+        "false_alarm_rate": 0.006654567453115548,
+        "false_alarms": 11,
+        "true_negatives": 1642,
+        "recall": 0.96,
+        "precision": 0.8674698795180723
+      },
+      {
+        "threshold": 0.55,
+        "false_alarm_rate": 0.006654567453115548,
+        "false_alarms": 11,
+        "true_negatives": 1642,
+        "recall": 0.9466666666666667,
+        "precision": 0.8658536585365854
+      },
+      {
+        "threshold": 0.6,
+        "false_alarm_rate": 0.006654567453115548,
+        "false_alarms": 11,
+        "true_negatives": 1642,
+        "recall": 0.9333333333333333,
+        "precision": 0.8641975308641975
+      },
+      {
+        "threshold": 0.7,
+        "false_alarm_rate": 0.004839685420447671,
+        "false_alarms": 8,
+        "true_negatives": 1645,
+        "recall": 0.92,
+        "precision": 0.8961038961038961
+      },
+      {
+        "threshold": 0.8,
+        "false_alarm_rate": 0.0024198427102238356,
+        "false_alarms": 4,
+        "true_negatives": 1649,
+        "recall": 0.88,
+        "precision": 0.9428571428571428
+      }
+    ]
+  },
+  "ablation": {
+    "full_model": {
+      "model": "full_model",
+      "precision": 0.9019607843137255,
+      "recall": 0.92,
+      "f1": 0.9108910891089109,
+      "pr_auc": 0.9813631560469568,
+      "roc_auc": 0.9985498489425981,
+      "brier_score": 0.008163053483044577,
+      "ece": 0.009172409849105768,
+      "false_alarm_rate": 0.0075528700906344415,
+      "true_negative": 657,
+      "false_positive": 5,
+      "false_negative": 4,
+      "true_positive": 46,
+      "total_positives": 50,
+      "total_negatives": 662
+    },
+    "soft_only": {
+      "model": "soft_only",
+      "precision": 0.5735294117647058,
+      "recall": 0.78,
+      "f1": 0.6610169491525424,
+      "pr_auc": 0.43768555739401704,
+      "roc_auc": 0.956797583081571,
+      "brier_score": 0.08448310021886853,
+      "ece": 0.19144649452591572,
+      "false_alarm_rate": 0.04380664652567976,
+      "true_negative": 633,
+      "false_positive": 29,
+      "false_negative": 11,
+      "true_positive": 39,
+      "total_positives": 50,
+      "total_negatives": 662
+    },
+    "hard_only": {
+      "model": "hard_only",
+      "precision": 0.782608695652174,
+      "recall": 0.72,
+      "f1": 0.75,
+      "pr_auc": 0.7231306282508992,
+      "roc_auc": 0.9858610271903323,
+      "brier_score": 0.025182828035524546,
+      "ece": 0.043162710370336074,
+      "false_alarm_rate": 0.015105740181268883,
+      "true_negative": 652,
+      "false_positive": 10,
+      "false_negative": 14,
+      "true_positive": 36,
+      "total_positives": 50,
+      "total_negatives": 662
+    },
+    "no_neupert": {
+      "model": "no_neupert",
+      "precision": 0.9,
+      "recall": 0.9,
+      "f1": 0.9,
+      "pr_auc": 0.9832033249873346,
+      "roc_auc": 0.9987009063444109,
+      "brier_score": 0.008106931028005613,
+      "ece": 0.008894671151855141,
+      "false_alarm_rate": 0.0075528700906344415,
+      "true_negative": 657,
+      "false_positive": 5,
+      "false_negative": 5,
+      "true_positive": 45,
+      "total_positives": 50,
+      "total_negatives": 662
+    },
+    "with_neupert": {
+      "model": "with_neupert",
+      "precision": 0.9,
+      "recall": 0.9,
+      "f1": 0.9,
+      "pr_auc": 0.9818257219617833,
+      "roc_auc": 0.9986102719033233,
+      "brier_score": 0.008102248935000696,
+      "ece": 0.009042289226705974,
+      "false_alarm_rate": 0.0075528700906344415,
+      "true_negative": 657,
+      "false_positive": 5,
+      "false_negative": 5,
+      "true_positive": 45,
+      "total_positives": 50,
+      "total_negatives": 662
+    },
+    "physics_loss_comparison": {
+      "neupert_lambda_off": 0.9,
+      "neupert_lambda_on": 0.9,
+      "f1_delta": 0.0
+    }
+  },
+  "calibration_plot": "C:\\Users\\shiva\\OneDrive\\Documents\\GITHUB\\L-1\\reports\\calibration_curve.png",
+  "shap": {
+    "available": false,
+    "reason": "name 'SolarisFusionModel' is not defined"
+  },
+  "report_path": "C:\\Users\\shiva\\OneDrive\\Documents\\GITHUB\\L-1\\reports\\comprehensive_evaluation_report.md"
+}

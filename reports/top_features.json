@@ -1,0 +1,34 @@
+[
+  [
+    "cross_attention_score",
+    1.9285448163623848
+  ],
+  [
+    "hard_rolling_slope",
+    1.8661842133696154
+  ],
+  [
+    "physics_weighted_risk",
+    1.7402287089931556
+  ],
+  [
+    "neupert_consistency",
+    1.7214471294817801
+  ],
+  [
+    "rolling_variance",
+    1.3364117185671107
+  ],
+  [
+    "soft_xray_derivative",
+    0.9852980257082177
+  ],
+  [
+    "hardness_ratio",
+    0.8813813676251622
+  ],
+  [
+    "rolling_volatility",
+    0.8762079730571528
+  ]
+]

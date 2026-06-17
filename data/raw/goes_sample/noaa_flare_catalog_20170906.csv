@@ -1,0 +1,4 @@
+event_id,start_time,peak_time,end_time,flare_class,severity,scenario
+NOAA-X2.2-2017,2017-09-06T08:40:00Z,2017-09-06T09:00:00Z,2017-09-06T10:30:00Z,X2.2,5,X-class critical replay
+NOAA-X9.3-2017,2017-09-06T11:53:00Z,2017-09-06T12:02:00Z,2017-09-06T13:30:00Z,X9.3,5,X-class critical replay
+NOAA-M1.2-2017,2017-09-05T17:30:00Z,2017-09-05T18:00:00Z,2017-09-05T19:00:00Z,M1.2,4,M-class warning replay

@@ -1,0 +1,16 @@
+numpy
+pandas
+pyarrow
+pyyaml
+scikit-learn
+plotly
+streamlit
+pytest
+torch
+astropy
+fastapi
+uvicorn
+
+[dev]
+ruff
+mypy

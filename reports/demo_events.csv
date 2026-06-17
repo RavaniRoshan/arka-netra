@@ -1,0 +1,4 @@
+event_id,start_time,peak_time,flare_class,severity,scenario
+SOL-C-001,2026-01-02 06:10:00+00:00,2026-01-02 07:30:00+00:00,C6.1,3,C-class watch replay
+SOL-M-002,2026-01-03 22:30:00+00:00,2026-01-04 00:00:00+00:00,M2.8,4,M-class warning replay
+SOL-X-003,2026-01-05 12:00:00+00:00,2026-01-05 13:30:00+00:00,X1.3,5,X-class critical replay

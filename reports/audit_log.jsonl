@@ -1,0 +1,399 @@
+{
+  "timestamp": "2026-06-16T17:20:47.008471+00:00",
+  "config_hash": "a7309497d5128616",
+  "data_hash": "41690525b35e36cc",
+  "model_version": "mvp-0.1",
+  "prediction_rows": 1728,
+  "scenarios": [
+    "Background archive",
+    "C-class watch replay",
+    "M-class warning replay",
+    "Quiet Sun replay",
+    "X-class critical replay"
+  ],
+  "alert_counts": {
+    "NORMAL": 1583,
+    "CRITICAL": 87,
+    "WATCH": 53,
+    "WARNING": 5
+  },
+  "mission_mode": "synthetic"
+}
+{
+  "timestamp": "2026-06-16T17:22:51.346591+00:00",
+  "config_hash": "a7309497d5128616",
+  "data_hash": "41690525b35e36cc",
+  "model_version": "mvp-0.1",
+  "prediction_rows": 1728,
+  "scenarios": [
+    "Background archive",
+    "C-class watch replay",
+    "M-class warning replay",
+    "Quiet Sun replay",
+    "X-class critical replay"
+  ],
+  "alert_counts": {
+    "NORMAL": 1583,
+    "CRITICAL": 87,
+    "WATCH": 53,
+    "WARNING": 5
+  },
+  "mission_mode": "synthetic"
+}
+{
+  "timestamp": "2026-06-16T17:25:38.745267+00:00",
+  "config_hash": "a7309497d5128616",
+  "data_hash": "41690525b35e36cc",
+  "model_version": "mvp-0.1",
+  "prediction_rows": 1728,
+  "scenarios": [
+    "Background archive",
+    "C-class watch replay",
+    "M-class warning replay",
+    "Quiet Sun replay",
+    "X-class critical replay"
+  ],
+  "alert_counts": {
+    "NORMAL": 1583,
+    "CRITICAL": 87,
+    "WATCH": 53,
+    "WARNING": 5
+  },
+  "mission_mode": "synthetic"
+}
+{
+  "timestamp": "2026-06-16T17:43:25.169686+00:00",
+  "config_hash": "c1c612d212a403eb",
+  "data_hash": "41690525b35e36cc",
+  "model_version": "mvp-0.1",
+  "prediction_rows": 1728,
+  "scenarios": [
+    "Background archive",
+    "C-class watch replay",
+    "M-class warning replay",
+    "Quiet Sun replay",
+    "X-class critical replay"
+  ],
+  "alert_counts": {
+    "NORMAL": 1583,
+    "CRITICAL": 87,
+    "WATCH": 53,
+    "WARNING": 5
+  },
+  "mission_mode": "synthetic"
+}
+{
+  "timestamp": "2026-06-16T17:50:28.408937+00:00",
+  "config_hash": "c1c612d212a403eb",
+  "data_hash": "5d881aa9ccea2e02",
+  "model_version": "mvp-0.1",
+  "prediction_rows": 1728,
+  "scenarios": [
+    "Background archive",
+    "C-class watch replay",
+    "M-class warning replay",
+    "Quiet Sun replay",
+    "X-class critical replay"
+  ],
+  "alert_counts": {
+    "NORMAL": 1583,
+    "CRITICAL": 87,
+    "WATCH": 53,
+    "WARNING": 5
+  },
+  "mission_mode": "synthetic"
+}
+{
+  "timestamp": "2026-06-16T17:58:22.090617+00:00",
+  "config_hash": "0387ae1ef30323db",
+  "data_hash": "5d881aa9ccea2e02",
+  "model_version": "mvp-0.1",
+  "prediction_rows": 1728,
+  "scenarios": [
+    "Background archive",
+    "C-class watch replay",
+    "M-class warning replay",
+    "Quiet Sun replay",
+    "X-class critical replay"
+  ],
+  "alert_counts": {
+    "NORMAL": 1583,
+    "CRITICAL": 87,
+    "WATCH": 53,
+    "WARNING": 5
+  },
+  "mission_mode": "synthetic"
+}
+{
+  "timestamp": "2026-06-16T18:09:55.972302+00:00",
+  "config_hash": "0387ae1ef30323db",
+  "data_hash": "5d881aa9ccea2e02",
+  "model_version": "mvp-0.1",
+  "prediction_rows": 1728,
+  "scenarios": [
+    "Background archive",
+    "C-class watch replay",
+    "M-class warning replay",
+    "Quiet Sun replay",
+    "X-class critical replay"
+  ],
+  "alert_counts": {
+    "NORMAL": 1583,
+    "CRITICAL": 87,
+    "WATCH": 53,
+    "WARNING": 5
+  },
+  "mission_mode": "synthetic"
+}
+{
+  "timestamp": "2026-06-17T02:48:52.258814+00:00",
+  "config_hash": "0387ae1ef30323db",
+  "data_hash": "5d881aa9ccea2e02",
+  "model_version": "mvp-0.1",
+  "prediction_rows": 1728,
+  "scenarios": [
+    "Background archive",
+    "C-class watch replay",
+    "M-class warning replay",
+    "Quiet Sun replay",
+    "X-class critical replay"
+  ],
+  "alert_counts": {
+    "NORMAL": 1583,
+    "CRITICAL": 87,
+    "WATCH": 53,
+    "WARNING": 5
+  },
+  "mission_mode": "synthetic"
+}
+{
+  "timestamp": "2026-06-17T02:58:13.889545+00:00",
+  "config_hash": "7686fc9b3e854a16",
+  "data_hash": "5d881aa9ccea2e02",
+  "model_version": "mvp-0.1",
+  "prediction_rows": 1728,
+  "scenarios": [
+    "Background archive",
+    "C-class watch replay",
+    "M-class warning replay",
+    "Quiet Sun replay",
+    "X-class critical replay"
+  ],
+  "alert_counts": {
+    "NORMAL": 1583,
+    "CRITICAL": 87,
+    "WATCH": 53,
+    "WARNING": 5
+  },
+  "mission_mode": "synthetic"
+}
+{
+  "timestamp": "2026-06-17T02:59:13.542643+00:00",
+  "config_hash": "7686fc9b3e854a16",
+  "data_hash": "5d881aa9ccea2e02",
+  "model_version": "mvp-0.1",
+  "prediction_rows": 1728,
+  "scenarios": [
+    "Background archive",
+    "C-class watch replay",
+    "M-class warning replay",
+    "Quiet Sun replay",
+    "X-class critical replay"
+  ],
+  "alert_counts": {
+    "NORMAL": 1583,
+    "CRITICAL": 87,
+    "WATCH": 53,
+    "WARNING": 5
+  },
+  "mission_mode": "synthetic"
+}
+{
+  "timestamp": "2026-06-17T03:13:04.973148+00:00",
+  "config_hash": "7686fc9b3e854a16",
+  "data_hash": "5d881aa9ccea2e02",
+  "model_version": "mvp-0.1",
+  "prediction_rows": 1728,
+  "scenarios": [
+    "Background archive",
+    "C-class watch replay",
+    "M-class warning replay",
+    "Quiet Sun replay",
+    "X-class critical replay"
+  ],
+  "alert_counts": {
+    "NORMAL": 1583,
+    "CRITICAL": 87,
+    "WATCH": 53,
+    "WARNING": 5
+  },
+  "mission_mode": "synthetic"
+}
+{
+  "timestamp": "2026-06-17T03:48:43.417706+00:00",
+  "config_hash": "7686fc9b3e854a16",
+  "data_hash": "5d881aa9ccea2e02",
+  "model_version": "mvp-0.1",
+  "prediction_rows": 1728,
+  "scenarios": [
+    "Background archive",
+    "C-class watch replay",
+    "M-class warning replay",
+    "Quiet Sun replay",
+    "X-class critical replay"
+  ],
+  "alert_counts": {
+    "NORMAL": 1583,
+    "CRITICAL": 87,
+    "WATCH": 53,
+    "WARNING": 5
+  },
+  "mission_mode": "synthetic"
+}
+{
+  "timestamp": "2026-06-17T04:17:20.619744+00:00",
+  "config_hash": "7686fc9b3e854a16",
+  "data_hash": "5d881aa9ccea2e02",
+  "model_version": "mvp-0.1",
+  "prediction_rows": 1728,
+  "scenarios": [
+    "Background archive",
+    "C-class watch replay",
+    "M-class warning replay",
+    "Quiet Sun replay",
+    "X-class critical replay"
+  ],
+  "alert_counts": {
+    "NORMAL": 1583,
+    "CRITICAL": 87,
+    "WATCH": 53,
+    "WARNING": 5
+  },
+  "mission_mode": "synthetic"
+}
+{
+  "timestamp": "2026-06-17T04:19:29.284433+00:00",
+  "config_hash": "7686fc9b3e854a16",
+  "data_hash": "5d881aa9ccea2e02",
+  "model_version": "mvp-0.1",
+  "prediction_rows": 1728,
+  "scenarios": [
+    "Background archive",
+    "C-class watch replay",
+    "M-class warning replay",
+    "Quiet Sun replay",
+    "X-class critical replay"
+  ],
+  "alert_counts": {
+    "NORMAL": 1583,
+    "CRITICAL": 87,
+    "WATCH": 53,
+    "WARNING": 5
+  },
+  "mission_mode": "synthetic"
+}
+{
+  "timestamp": "2026-06-17T04:21:20.467883+00:00",
+  "config_hash": "7686fc9b3e854a16",
+  "data_hash": "5d881aa9ccea2e02",
+  "model_version": "mvp-0.1",
+  "prediction_rows": 1728,
+  "scenarios": [
+    "Background archive",
+    "C-class watch replay",
+    "M-class warning replay",
+    "Quiet Sun replay",
+    "X-class critical replay"
+  ],
+  "alert_counts": {
+    "NORMAL": 1583,
+    "CRITICAL": 87,
+    "WATCH": 53,
+    "WARNING": 5
+  },
+  "mission_mode": "synthetic"
+}
+{
+  "timestamp": "2026-06-17T04:52:35.467291+00:00",
+  "config_hash": "7686fc9b3e854a16",
+  "data_hash": "5d881aa9ccea2e02",
+  "model_version": "mvp-0.1",
+  "prediction_rows": 1728,
+  "scenarios": [
+    "Background archive",
+    "C-class watch replay",
+    "M-class warning replay",
+    "Quiet Sun replay",
+    "X-class critical replay"
+  ],
+  "alert_counts": {
+    "NORMAL": 1583,
+    "CRITICAL": 87,
+    "WATCH": 53,
+    "WARNING": 5
+  },
+  "mission_mode": "synthetic"
+}
+{
+  "timestamp": "2026-06-17T04:59:00.541237+00:00",
+  "config_hash": "7686fc9b3e854a16",
+  "data_hash": "5d881aa9ccea2e02",
+  "model_version": "mvp-0.1",
+  "prediction_rows": 1728,
+  "scenarios": [
+    "Background archive",
+    "C-class watch replay",
+    "M-class warning replay",
+    "Quiet Sun replay",
+    "X-class critical replay"
+  ],
+  "alert_counts": {
+    "NORMAL": 1583,
+    "CRITICAL": 87,
+    "WATCH": 53,
+    "WARNING": 5
+  },
+  "mission_mode": "synthetic"
+}
+{
+  "timestamp": "2026-06-17T05:37:31.731365+00:00",
+  "config_hash": "7686fc9b3e854a16",
+  "data_hash": "962a88ad6fa51748",
+  "model_version": "mvp-0.1",
+  "prediction_rows": 1728,
+  "scenarios": [
+    "Background archive",
+    "C-class watch replay",
+    "M-class warning replay",
+    "Quiet Sun replay",
+    "X-class critical replay"
+  ],
+  "alert_counts": {
+    "NORMAL": 1595,
+    "CRITICAL": 73,
+    "WATCH": 51,
+    "WARNING": 9
+  },
+  "mission_mode": "synthetic"
+}
+{
+  "timestamp": "2026-06-17T05:54:15.104942+00:00",
+  "config_hash": "7686fc9b3e854a16",
+  "data_hash": "962a88ad6fa51748",
+  "model_version": "mvp-0.1",
+  "prediction_rows": 1728,
+  "scenarios": [
+    "Background archive",
+    "C-class watch replay",
+    "M-class warning replay",
+    "Quiet Sun replay",
+    "X-class critical replay"
+  ],
+  "alert_counts": {
+    "NORMAL": 1595,
+    "CRITICAL": 73,
+    "WATCH": 51,
+    "WARNING": 9
+  },
+  "mission_mode": "synthetic"
+}

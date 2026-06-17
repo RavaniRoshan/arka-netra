@@ -1,0 +1,100 @@
+{
+  "project": "Project Solaris",
+  "mvp_version": "mvp-0.1",
+  "data_mode": "synthetic_proxy_replay",
+  "mission_mode": "synthetic",
+  "soft_source": "SYNTHETIC",
+  "hard_source": "NONE",
+  "generated_at_utc": "2026-06-17T05:54:13.441562+00:00",
+  "dataset_rows": 1728,
+  "prediction_rows": 1728,
+  "scenarios": [
+    "Quiet Sun replay",
+    "C-class watch replay",
+    "M-class warning replay",
+    "X-class critical replay",
+    "Background archive"
+  ],
+  "mission_states": {
+    "NORMAL": 1595,
+    "CRITICAL": 73,
+    "WATCH": 51,
+    "WARNING": 9
+  },
+  "staleness": {
+    "score": 40.0,
+    "factors": {
+      "age_hours": 3869.987066750555,
+      "age_score": 100
+    },
+    "is_stale": false,
+    "details": {
+      "last_timestamp": "2026-01-06 23:55:00+00:00",
+      "rows": 1728,
+      "age_hours": 3869.987066750555,
+      "quality_fraction": 1.0
+    }
+  },
+  "best_model": {
+    "model": "dual_branch_cross_attention_surrogate",
+    "precision": 0.9,
+    "recall": 0.9,
+    "f1": 0.9,
+    "pr_auc": 0.9818257219617833,
+    "roc_auc": 0.9986102719033233,
+    "brier_score": 0.008102248935000696,
+    "ece": 0.009042289226705974,
+    "false_alarm_rate": 0.0075528700906344415,
+    "true_negative": 657,
+    "false_positive": 5,
+    "false_negative": 5,
+    "true_positive": 45
+  },
+  "limitations": [
+    "Synthetic proxy replay data is used for immediate runnable MVP validation.",
+    "Not an operational forecast.",
+    "PyTorch GRU architecture is scaffolded but not required for the current runtime."
+  ],
+  "artifacts": {
+    "data/processed/solaris_mvp_dataset.parquet": {
+      "exists": true,
+      "bytes": 242137
+    },
+    "reports/predictions/solaris_mvp_predictions.parquet": {
+      "exists": true,
+      "bytes": 188601
+    },
+    "reports/metrics.csv": {
+      "exists": true,
+      "bytes": 617
+    },
+    "reports/evaluation_report.md": {
+      "exists": true,
+      "bytes": 1279
+    },
+    "reports/event_summary.csv": {
+      "exists": true,
+      "bytes": 627
+    },
+    "reports/event_summary.md": {
+      "exists": true,
+      "bytes": 746
+    },
+    "reports/top_features.json": {
+      "exists": true,
+      "bytes": 502
+    },
+    "reports/attention_matrix.csv": {
+      "exists": true,
+      "bytes": 12689
+    },
+    "docs/DOC-001_Project_Solaris_Constitution_v1.0.md": {
+      "exists": true,
+      "bytes": 65502
+    },
+    "docs/DOC-601_MVP_to_Final_Version_Development_Plan.md": {
+      "exists": true,
+      "bytes": 11740
+    }
+  }
+}

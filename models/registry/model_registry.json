@@ -1,0 +1,15 @@
+{
+  "models": [
+    {
+      "version": "gru_9b1db0cff9da8647",
+      "registered_at": "2026-06-17T04:51:42.942293+00:00",
+      "data_source": "synthetic",
+      "architecture": "dual_branch_cross_attention_gru",
+      "best_f1": null,
+      "notes": "Trained for 4 epochs, best at epoch 4, early stopping patience=4",
+      "path": "models\\registry\\gru_9b1db0cff9da8647",
+      "updated_at": "2026-06-17T05:50:35.745532+00:00"
+    }
+  ],
+  "version": "1.0"
+}
