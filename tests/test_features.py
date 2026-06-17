@@ -2,9 +2,9 @@ from __future__ import annotations
 
 import pandas as pd
 
-from solaris.config import load_config
-from solaris.data.synthetic import build_synthetic_proxy_data
-from solaris.features import add_features
+from arkanetra.config import load_config
+from arkanetra.data.synthetic import build_synthetic_proxy_data
+from arkanetra.features import add_features
 
 
 def test_features_are_past_only_and_finite():

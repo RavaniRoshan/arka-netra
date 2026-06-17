@@ -5,8 +5,8 @@ import pandas as pd
 
 import pytest
 
-from solaris.alerts import AlertStateMachine
-from solaris.data.staleness import (
+from arkanetra.alerts import AlertStateMachine
+from arkanetra.data.staleness import (
     compute_staleness_score,
     add_staleness_flags,
     detect_data_gaps,
@@ -188,13 +188,13 @@ class TestDataGapDetection:
 
 class TestConfigHash:
     def test_config_hash_deterministic(self):
-        from solaris.alerts import config_hash
+        from arkanetra.alerts import config_hash
         config1 = {"a": 1, "b": 2}
         config2 = {"b": 2, "a": 1}
         assert config_hash(config1) == config_hash(config2)
 
     def test_config_hash_changes_with_content(self):
-        from solaris.alerts import config_hash
+        from arkanetra.alerts import config_hash
         config1 = {"a": 1}
         config2 = {"a": 2}
         assert config_hash(config1) != config_hash(config2)
@@ -202,7 +202,7 @@ class TestConfigHash:
 
 class TestDatasetHash:
     def test_dataset_hash_changes_with_content(self):
-        from solaris.alerts import compute_dataset_hash
+        from arkanetra.alerts import compute_dataset_hash
         df1 = pd.DataFrame({"a": [1, 2, 3]})
         df2 = pd.DataFrame({"a": [1, 2, 4]})
         assert compute_dataset_hash(df1) != compute_dataset_hash(df2)

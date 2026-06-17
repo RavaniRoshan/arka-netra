@@ -5,7 +5,7 @@ from unittest.mock import patch
 
 import pytest
 
-from solaris.data.download import fetch_binary, fetch_json
+from arkanetra.data.download import fetch_binary, fetch_json
 
 
 class TestFetchJson:
@@ -28,7 +28,7 @@ class TestFetchJson:
             fetch_json("https://services.swpc.noaa.gov/json/goes/primary/nonexistent.json", timeout_seconds=10)
 
     def test_retries_on_failure(self):
-        with patch("solaris.data.download.urllib.request.urlopen") as mock_urlopen:
+        with patch("arkanetra.data.download.urllib.request.urlopen") as mock_urlopen:
             from urllib.error import URLError
             mock_urlopen.side_effect = URLError("connection refused")
             with pytest.raises(URLError):
@@ -49,8 +49,8 @@ class TestFetchBinary:
 
 class TestGoesLiveDownload:
     def test_swpc_download_goes_xrs_data(self):
-        from solaris.data.goes import download_goes_xrs
-        from solaris.config import ROOT
+        from arkanetra.data.goes import download_goes_xrs
+        from arkanetra.config import ROOT
 
         now = __import__("pandas").Timestamp.now("UTC")
         result = download_goes_xrs(
@@ -60,7 +60,7 @@ class TestGoesLiveDownload:
         assert result is None or (Path(result).exists() and Path(result).stat().st_size > 0)
 
     def test_downloaded_data_matches_contract(self):
-        from solaris.data.goes import SWPC_XRAY_7DAY_URL, _fetch_swpc_json
+        from arkanetra.data.goes import SWPC_XRAY_7DAY_URL, _fetch_swpc_json
 
         records = _fetch_swpc_json(SWPC_XRAY_7DAY_URL, timeout_seconds=15)
         assert len(records) > 0
@@ -70,7 +70,7 @@ class TestGoesLiveDownload:
         assert "energy" in row
 
     def test_short_channel_filtered_out(self):
-        from solaris.data.goes import _is_short_channel
+        from arkanetra.data.goes import _is_short_channel
 
         assert _is_short_channel("0.5-4.0A")
         assert _is_short_channel("0.5-4A")
@@ -80,8 +80,8 @@ class TestGoesLiveDownload:
 
 class TestFermiGbmDownload:
     def test_download_fermi_gbm_download(self):
-        from solaris.data.hard_xray_proxy import download_fermi_gbm_data
-        from solaris.config import ROOT
+        from arkanetra.data.hard_xray_proxy import download_fermi_gbm_data
+        from arkanetra.config import ROOT
 
         save_dir = ROOT / "data" / "raw" / "goes_sample"
         paths = download_fermi_gbm_data("2026-06-16", "2026-06-16", save_dir=save_dir)

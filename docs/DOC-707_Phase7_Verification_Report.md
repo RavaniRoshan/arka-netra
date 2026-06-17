@@ -1,6 +1,6 @@
 # DOC-707: Phase 7 Verification Report
 
-**Project:** Project Solaris  
+**Project:** ArkaNetra  
 **Phase:** 7 — Aditya-L1 Mission Integration  
 **Date:** 2026-06-17  
 **Status:** COMPLETE
@@ -60,7 +60,7 @@
 
 ## New Module: Cross-Calibration
 
-### `src/solaris/data/cross_calibration.py`
+### `src/arkanetra/data/cross_calibration.py`
 
 | Component | Description |
 |-----------|-------------|
@@ -85,9 +85,9 @@
 
 | File | Change |
 |------|--------|
-| `src/solaris/data/solexs.py` | **Updated:** Added `download_solexs_data()`, ISRO archive URLs |
-| `src/solaris/data/hel1os.py` | **Updated:** Added `download_hel1os_data()`, ISRO archive URLs |
-| **`src/solaris/data/cross_calibration.py`** | **NEW:** Cross-calibration module with SoLEXS/GOES and HEL1OS/RHESSI |
+| `src/arkanetra/data/solexs.py` | **Updated:** Added `download_solexs_data()`, ISRO archive URLs |
+| `src/arkanetra/data/hel1os.py` | **Updated:** Added `download_hel1os_data()`, ISRO archive URLs |
+| **`src/arkanetra/data/cross_calibration.py`** | **NEW:** Cross-calibration module with SoLEXS/GOES and HEL1OS/RHESSI |
 | `app/streamlit_app.py` | **Updated:** Enhanced Aditya-L1 terminology — instrument names, energy ranges, ISRO attribution |
 | **`docs/cross_calibration.md`** | **NEW:** Cross-calibration methodology documentation |
 | `tests/test_cross_calibration.py` | **NEW:** 14 tests for calibration and download |
@@ -97,7 +97,7 @@
 ## Module Architecture
 
 ```
-solaris/data/
+arkanetra/data/
 ├── cross_calibration.py    # NEW: SoLEXS/GOES, HEL1OS/RHESSI calibration
 ├── solexs.py               # Updated: download_solexs_data()
 ├── hel1os.py               # Updated: download_hel1os_data()

@@ -1,6 +1,6 @@
 # DOC-701: Phase 1 Verification Report
 
-**Project:** Project Solaris  
+**Project:** ArkaNetra  
 **Phase:** 1 — Real Data Ingestion Hardening  
 **Date:** 2026-06-17  
 **Status:** COMPLETE
@@ -48,7 +48,7 @@
 
 | Requirement | Status |
 |-------------|--------|
-| `src/solaris/data/download.py` created | ✅ Created |
+| `src/arkanetra/data/download.py` created | ✅ Created |
 | `fetch_json()` with retry | ✅ Implemented |
 | `fetch_binary()` with retry | ✅ Implemented |
 | 404 short-circuits retry (no unnecessary retries) | ✅ Implemented |
@@ -77,9 +77,9 @@
 
 | File | Change |
 |------|--------|
-| `src/solaris/data/goes.py` | Fixed SWPC URL, added retry, schema parsing, `sample` source mode, provenance labels |
-| `src/solaris/data/hard_xray_proxy.py` | Added Fermi GBM download, FITS parser, refactored RHESSI download to use fetch_binary, cleaned imports |
-| `src/solaris/data/download.py` | **New:** utility module with `fetch_json()`, `fetch_binary()` |
+| `src/arkanetra/data/goes.py` | Fixed SWPC URL, added retry, schema parsing, `sample` source mode, provenance labels |
+| `src/arkanetra/data/hard_xray_proxy.py` | Added Fermi GBM download, FITS parser, refactored RHESSI download to use fetch_binary, cleaned imports |
+| `src/arkanetra/data/download.py` | **New:** utility module with `fetch_json()`, `fetch_binary()` |
 | `tests/test_download.py` | **New:** 10 tests for download utilities, GOES live download, Fermi GBM download |
 | `tests/test_goes_adapter.py` | Updated assertions for new source labels, changed test to use `sample` mode |
 | `tests/test_hard_xray_proxy.py` | Updated tests to use `sample` mode for consistent sample data |
@@ -100,7 +100,7 @@
 - [x] Add provenance labels (`GOES_XRS_LIVE` / `GOES_XRS_SAMPLE`)
 
 ### Phase 1.2: Download Utility
-- [x] `src/solaris/data/download.py` created
+- [x] `src/arkanetra/data/download.py` created
 - [x] `fetch_json()` with retry
 - [x] `fetch_binary()` with retry
 - [x] `save_csv()` utility

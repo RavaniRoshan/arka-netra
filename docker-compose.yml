@@ -11,8 +11,8 @@ services:
       - ./reports:/app/reports
     environment:
       - PYTHONPATH=/app/src
-      - SOLARIS_API_KEY=${SOLARIS_API_KEY:-}
-      - SOLARIS_RATE_LIMIT_RPM=${SOLARIS_RATE_LIMIT_RPM:-60}
+      - ARKANETRA_API_KEY=${ARKANETRA_API_KEY:-}
+      - ARKANETRA_RATE_LIMIT_RPM=${ARKANETRA_RATE_LIMIT_RPM:-60}
     healthcheck:
       test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
       interval: 30s

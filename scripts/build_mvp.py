@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from solaris.pipeline import run_mvp
+from arkanetra.pipeline import run_mvp
 
 
 if __name__ == "__main__":

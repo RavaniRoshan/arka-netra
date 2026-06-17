@@ -1,6 +1,6 @@
 # DOC-612: Publication and Collaboration Materials
 
-**Project:** Project Solaris
+**Project:** ArkaNetra
 **Version:** Phase 5 Final
 **Date:** 2026-06-16
 **Status:** COMPLETE
@@ -22,7 +22,7 @@
 
 ### 1.1 Executive Summary
 
-Project Solaris is a physics-informed multimodal solar flare early warning system designed for operational and research use. The system ingests near-real-time solar X-ray flux from multiple spacecraft (GOES, RHESSI, Fermi GBM, Aditya-L1 SoLEXS/HEL1OS) and produces probabilistic flare predictions with uncertainty quantification, anomaly detection, and radiation-risk context.
+ArkaNetra is a physics-informed multimodal solar flare early warning system designed for operational and research use. The system ingests near-real-time solar X-ray flux from multiple spacecraft (GOES, RHESSI, Fermi GBM, Aditya-L1 SoLEXS/HEL1OS) and produces probabilistic flare predictions with uncertainty quantification, anomaly detection, and radiation-risk context.
 
 The Phase 5 upgrade introduces:
 - A dual-branch GRU model with cross-attention (replacing the sklearn surrogate)
@@ -108,18 +108,18 @@ GRU model performance depends on training data volume and hyperparameters; expec
 
 ### 1.7 Citation
 
-If you use Project Solaris in academic work, please cite:
+If you use ArkaNetra in academic work, please cite:
 
 ```
-Solaris: A Physics-Informed Multimodal Solar Flare Early Warning System.
-Version 0.1 (Phase 5). 2026. https://github.com/anomalyco/solaris
+ArkaNetra: A Physics-Informed Multimodal Solar Flare Early Warning System.
+Version 0.1 (Phase 5). 2026. https://github.com/RavaniRoshan/arka-netra
 ```
 
 ---
 
 ## 2. Model Cards
 
-### 2.1 SolarisFusionModel (sklearn surrogate)
+### 2.1 ArkaNetraFusionModel (sklearn surrogate)
 
 **Model type:** StandardScaler + LogisticRegression with physics-informed feature augmentation  
 **Task:** Binary flare prediction (M-class or above within 120 minutes)  
@@ -159,7 +159,7 @@ Version 0.1 (Phase 5). 2026. https://github.com/anomalyco/solaris
 
 ### 3.1 Synthetic Data
 
-The synthetic dataset (`solaris/data/synthetic.py`) generates realistic flare-like events under a Poisson process with a power-law burst duration distribution. It preserves the statistical properties of GOES observations without requiring external data access.
+The synthetic dataset (`arkanetra/data/synthetic.py`) generates realistic flare-like events under a Poisson process with a power-law burst duration distribution. It preserves the statistical properties of GOES observations without requiring external data access.
 
 **Properties:**
 - Cadence: 5 minutes (configurable)
@@ -214,8 +214,8 @@ All prediction outputs follow this schema:
 ### 4.1 Pipeline API
 
 ```python
-from solaris.pipeline import build_dataset, make_predictions, write_reports, build_artifact_manifest
-from solaris.config import load_config
+from arkanetra.pipeline import build_dataset, make_predictions, write_reports, build_artifact_manifest
+from arkanetra.config import load_config
 from pathlib import Path
 
 config = load_config("configs/mvp.yaml")
@@ -228,7 +228,7 @@ manifest = build_artifact_manifest(Path("."), dataset, events, predictions, bund
 ### 4.2 Training API
 
 ```python
-from solaris.models import ModelBundle, train_models, monte_carlo_uncertainty
+from arkanetra.models import ModelBundle, train_models, monte_carlo_uncertainty
 
 bundle = train_models(dataset, config)
 mean, variance, low, high = monte_carlo_uncertainty(
@@ -239,7 +239,7 @@ mean, variance, low, high = monte_carlo_uncertainty(
 ### 4.3 PyTorch Training API
 
 ```python
-from solaris.training import train_gru_model, SequenceDataset
+from arkanetra.training import train_gru_model, SequenceDataset
 
 result = train_gru_model(
     train_frame=train_df,
@@ -253,7 +253,7 @@ result = train_gru_model(
 ### 4.4 Radiation API
 
 ```python
-from solaris.radiation import SEPRiskModel, SEPRiskResult, ParticleData, SatelliteRiskContext, assess_satellite_risk
+from arkanetra.radiation import SEPRiskModel, SEPRiskResult, ParticleData, SatelliteRiskContext, assess_satellite_risk
 
 sep_model = SEPRiskModel(particle_data=particle_data)
 result: SEPRiskResult = sep_model.assess(
@@ -270,7 +270,7 @@ sat_ctx = assess_satellite_risk(sep_risk_index=50, orbit=SatelliteOrbit.GEO)
 ### 4.5 Registry API
 
 ```python
-from solaris.registry import ModelRegistry, get_registry
+from arkanetra.registry import ModelRegistry, get_registry
 
 registry = get_registry(Path("models/registry"))
 registry.register("v1.0.0", metrics=metrics_df, config_snapshot=config, architecture="gru")
@@ -282,7 +282,7 @@ registry.load_checkpoint_path("v1.0.0")
 ### 4.6 Archive API
 
 ```python
-from solaris.archive import ForecastArchive, append_forecast
+from arkanetra.archive import ForecastArchive, append_forecast
 
 run_id = append_forecast(predictions, config=config, metrics=bundle.metrics)
 
@@ -294,7 +294,7 @@ predictions_back = archive.load_predictions(run_id)
 ### 4.7 Monitoring API
 
 ```python
-from solaris.monitoring import detect_drift, compute_drift_score, should_retrain
+from arkanetra.monitoring import detect_drift, compute_drift_score, should_retrain
 
 report = detect_drift(reference_df, current_df, threshold=0.15)
 print(report.drift_detected, report.drifted_features)
@@ -305,7 +305,7 @@ retrain, reason = should_retrain(config, archive=archive)
 ### 4.8 Alerts API
 
 ```python
-from solaris.alerts import AlertStateMachine, AlertRecord
+from arkanetra.alerts import AlertStateMachine, AlertRecord
 
 sm = AlertStateMachine(config)
 state = sm.compute_state(probability=0.72, anomaly_index=50, is_stale=False)
@@ -322,7 +322,7 @@ sm.update(record)
 ### 4.9 FastAPI Endpoints
 
 ```bash
-uvicorn solaris.api.prediction_api:app --host 0.0.0.0 --port 8080
+uvicorn arkanetra.api.prediction_api:app --host 0.0.0.0 --port 8080
 ```
 
 | Endpoint | Method | Response |
@@ -342,7 +342,7 @@ uvicorn solaris.api.prediction_api:app --host 0.0.0.0 --port 8080
 
 ```bash
 git clone <repository-url>
-cd solaris
+cd arkanetra
 python -m venv .venv
 .venv/scripts/activate  # Windows
 pip install -e ".[dev]"
@@ -372,7 +372,7 @@ pytest tests/ -q --tb=short
 
 ### 5.5 Adding a New Data Source
 
-1. Create `src/solaris/data/<source>.py`
+1. Create `src/arkanetra/data/<source>.py`
 2. Implement `build_<source>_replay(config)` returning `(DataFrame, events_df)`
 3. Register in `pipeline.py::build_dataset`
 4. Add tests in `tests/test_<source>_adapter.py`
@@ -380,7 +380,7 @@ pytest tests/ -q --tb=short
 
 ### 5.6 Adding a New Model Architecture
 
-1. Add model class in `src/solaris/models.py` or `src/solaris/torch_models.py`
+1. Add model class in `src/arkanetra/models.py` or `src/arkanetra/torch_models.py`
 2. Update `train_models()` to support the new architecture
 3. Add toggle to `configs/mvp.yaml::model.architecture`
 4. Update `compute_anomaly_index` if anomaly detection changes
@@ -392,7 +392,7 @@ pytest tests/ -q --tb=short
 
 ### 6.1 Dataset Sharing
 
-Project Solaris publishes the following datasets for collaboration:
+ArkaNetra publishes the following datasets for collaboration:
 
 | Dataset | Format | Access |
 |---------|--------|--------|
@@ -406,7 +406,7 @@ Project Solaris publishes the following datasets for collaboration:
 Trained models are stored in `models/registry/` with versioned checkpoints and config snapshots.
 
 ```python
-from solaris.registry import get_registry
+from arkanetra.registry import get_registry
 registry = get_registry()
 latest = registry.get_latest()
 ```
@@ -472,7 +472,7 @@ Before beginning an operational pilot:
 
 | Version | Date | Author | Changes |
 |---------|------|--------|---------|
-| 0.1 | 2026-06-16 | Project Solaris | Phase 5 final — GRU architecture, radiation risk, model registry, archive, monitoring |
+| 0.1 | 2026-06-16 | ArkaNetra | Phase 5 final — GRU architecture, radiation risk, model registry, archive, monitoring |
 
 ---
 

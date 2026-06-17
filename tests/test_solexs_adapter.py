@@ -6,8 +6,8 @@ import numpy as np
 
 import pytest
 
-from solaris.config import ROOT
-from solaris.data.solexs import (
+from arkanetra.config import ROOT
+from arkanetra.data.solexs import (
     load_solexs_csv,
     _add_quality_flags,
     _resample_to_cadence,

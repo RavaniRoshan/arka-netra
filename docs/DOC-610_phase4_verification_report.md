@@ -1,6 +1,6 @@
 # DOC-610: Phase 4 Verification Report
 
-**Project:** Project Solaris
+**Project:** ArkaNetra
 **Phase:** 4 — Operational Decision-Support Prototype
 **Date:** 2026-06-16
 **Status:** COMPLETE
@@ -33,8 +33,8 @@
 
 | Requirement | Status |
 |-------------|--------|
-| Config hash per batch | ✅ `compute_config_hash()` in `solaris/alerts/audit.py` |
-| Data hash per batch | ✅ `compute_dataset_hash()` in `solaris/alerts/audit.py` |
+| Config hash per batch | ✅ `compute_config_hash()` in `arkanetra/alerts/audit.py` |
+| Data hash per batch | ✅ `compute_dataset_hash()` in `arkanetra/alerts/audit.py` |
 | Audit log appended | ✅ `reports/audit_log.jsonl` (append-only) |
 | Model version tracked | ✅ Included in audit log entry |
 
@@ -42,7 +42,7 @@
 
 | Requirement | Status |
 |-------------|--------|
-| Staleness score computed | ✅ `compute_staleness_score()` in `solaris/data/staleness.py` |
+| Staleness score computed | ✅ `compute_staleness_score()` in `arkanetra/data/staleness.py` |
 | Dashboard shows warning | ✅ Manifest includes `staleness` field |
 | UNCERTAIN state for stale data | ✅ `AlertStateMachine.compute_state()` returns UNCERTAIN when `is_stale=True` |
 
@@ -59,7 +59,7 @@
 | Requirement | Status |
 |-------------|--------|
 | JSONL export generated | ✅ `reports/predictions/predictions.jsonl` |
-| FastAPI endpoint | ✅ `src/solaris/api/prediction_api.py` with `/health`, `/predictions`, `/alerts`, `/manifest`, `/audit`, `/scenarios` |
+| FastAPI endpoint | ✅ `src/arkanetra/api/prediction_api.py` with `/health`, `/predictions`, `/alerts`, `/manifest`, `/audit`, `/scenarios` |
 
 ### 6. Reliability tests pass
 
@@ -104,7 +104,7 @@
 
 ### Prediction API
 - [x] JSONL export (`_write_predictions_jsonl`)
-- [x] FastAPI app (`src/solaris/api/prediction_api.py`)
+- [x] FastAPI app (`src/arkanetra/api/prediction_api.py`)
 - [x] Endpoints: `/health`, `/predictions`, `/alerts`, `/manifest`, `/audit`, `/scenarios`
 
 ### Reliability Tests
@@ -118,13 +118,13 @@
 ## New Files Created
 
 ```
-src/solaris/alerts/__init__.py
-src/solaris/alerts/schema.py         AlertRecord, create_alert_record
-src/solaris/alerts/lifecycle.py      AlertStateMachine
-src/solaris/alerts/audit.py          config_hash, data_hash, audit log
-src/solaris/data/staleness.py        staleness detection and gap detection
-src/solaris/api/__init__.py
-src/solaris/api/prediction_api.py    FastAPI app
+src/arkanetra/alerts/__init__.py
+src/arkanetra/alerts/schema.py         AlertRecord, create_alert_record
+src/arkanetra/alerts/lifecycle.py      AlertStateMachine
+src/arkanetra/alerts/audit.py          config_hash, data_hash, audit log
+src/arkanetra/data/staleness.py        staleness detection and gap detection
+src/arkanetra/api/__init__.py
+src/arkanetra/api/prediction_api.py    FastAPI app
 tests/test_reliability.py            19 reliability tests
 docs/DOC-609_phase4_operational_decision_support_plan.md
 docs/DOC-610_phase4_verification_report.md
@@ -136,7 +136,7 @@ reports/predictions/predictions.jsonl (generated)
 ## Modified Files
 
 ```
-src/solaris/pipeline.py               Alert integration, JSONL export, staleness in manifest
+src/arkanetra/pipeline.py               Alert integration, JSONL export, staleness in manifest
 app/streamlit_app.py                 Alert history panel, audit log panel
 configs/mvp.yaml                     (structure ready for Phase 4 config additions)
 docs/DOC-402_Task_Board.md           Updated
@@ -158,7 +158,7 @@ docs/DOC-002_Decision_Log.md         Updated
 
 To start the API:
 ```bash
-cd src/solaris/api
+cd src/arkanetra/api
 python -c "import uvicorn; uvicorn.run('prediction_api:app', host='0.0.0.0', port=8000)"
 ```
 

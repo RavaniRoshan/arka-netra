@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-from solaris.config import load_config
-from solaris.pipeline import build_dataset, make_predictions
+from arkanetra.config import load_config
+from arkanetra.pipeline import build_dataset, make_predictions
 
 
 def test_pipeline_contract():

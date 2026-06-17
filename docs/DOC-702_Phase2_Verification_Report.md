@@ -1,6 +1,6 @@
 # DOC-702: Phase 2 Verification Report
 
-**Project:** Project Solaris  
+**Project:** ArkaNetra  
 **Phase:** 2 — PyTorch Deep Learning Activation  
 **Date:** 2026-06-17  
 **Status:** COMPLETE
@@ -72,9 +72,9 @@
 
 | File | Change |
 |------|--------|
-| `src/solaris/training.py` | **Fixed:** Added module-level imports for `DualBranchCrossAttentionGRU` / `neupert_loss` (critical runtime NameError bug); **Added:** Early stopping with patience, best epoch tracking; **Fixed:** `SequenceDataset._build_indices` now properly stores values via setter |
-| `src/solaris/torch_models.py` | **Fixed:** Changed `std()` to use `correction=0` to prevent NaN on single-element inputs |
-| `src/solaris/anomaly.py` | **Enhanced:** `_gru_ae_anomaly()` now trains the autoencoder on quiet-Sun data when no model_state is provided; averages reconstruction error across timesteps for per-sample anomaly score |
+| `src/arkanetra/training.py` | **Fixed:** Added module-level imports for `DualBranchCrossAttentionGRU` / `neupert_loss` (critical runtime NameError bug); **Added:** Early stopping with patience, best epoch tracking; **Fixed:** `SequenceDataset._build_indices` now properly stores values via setter |
+| `src/arkanetra/torch_models.py` | **Fixed:** Changed `std()` to use `correction=0` to prevent NaN on single-element inputs |
+| `src/arkanetra/anomaly.py` | **Enhanced:** `_gru_ae_anomaly()` now trains the autoencoder on quiet-Sun data when no model_state is provided; averages reconstruction error across timesteps for per-sample anomaly score |
 | `tests/test_torch_models.py` | **New:** 26 tests covering all PyTorch components |
 | `docs/DOC-700_Grand_Unified_Implementation_Plan.md` | Phase 2 marked complete (status update needed) |
 

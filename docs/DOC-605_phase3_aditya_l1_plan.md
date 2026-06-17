@@ -1,6 +1,6 @@
 # DOC-605: Phase 3 — Aditya-L1 Payload Integration Prototype
 
-**Project:** Project Solaris  
+**Project:** ArkaNetra  
 **Source:** DOC-601_MVP_to_Final_Version_Development_Plan.md  
 **Current Baseline:** Phase 1 (GOES) + Phase 2 (RHESSI/Fermi) complete, 26 tests pass  
 **Date:** 2026-06-16
@@ -39,7 +39,7 @@ For aditya_l1:
 ## Phase 3.1: SoLEXS Adapter (Soft X-Ray)
 
 ### Goal
-Add SoLEXS adapter that maps payload channels into Solaris soft X-ray features.
+Add SoLEXS adapter that maps payload channels into ArkaNetra soft X-ray features.
 
 ### Step 3.1.1: Define SoLEXS Schema
 **Tasks:**
@@ -58,7 +58,7 @@ Add SoLEXS adapter that maps payload channels into Solaris soft X-ray features.
 
 ### Step 3.1.2: Implement SoLEXS Adapter
 **Tasks:**
-- Create `src/solaris/data/solexs.py`
+- Create `src/arkanetra/data/solexs.py`
 - Implement `load_solexs_csv(path)` — parse payload CSV into DataFrame
 - Implement `download_solexs(start, end)` — fetch from ISRO archive or use bundled sample
 - Normalize timestamps to UTC
@@ -67,7 +67,7 @@ Add SoLEXS adapter that maps payload channels into Solaris soft X-ray features.
 - Add payload metadata columns: `soft_instrument`, `soft_payload_version`, `soft_channel`
 
 **Deliverables:**
-- `src/solaris/data/solexs.py`
+- `src/arkanetra/data/solexs.py`
 - `data/raw/aditya_l1_sample/solexs_*.csv` — bundled sample data
 - Unit tests for SoLEXS parsing
 
@@ -114,7 +114,7 @@ Add HEL1OS adapter for high-energy channel mapping with background handling and 
 
 ### Step 3.2.2: Implement HEL1OS Adapter
 **Tasks:**
-- Create `src/solaris/data/hel1os.py`
+- Create `src/arkanetra/data/hel1os.py`
 - Implement `load_hel1os_csv(path)` — parse payload CSV into DataFrame
 - Implement `download_hel1os(start, end)` — fetch from ISRO archive or use bundled sample
 - Normalize timestamps to UTC
@@ -124,7 +124,7 @@ Add HEL1OS adapter for high-energy channel mapping with background handling and 
 - Add payload metadata columns: `hard_instrument`, `hard_payload_version`, `hard_energy_band`
 
 **Deliverables:**
-- `src/solaris/data/hel1os.py`
+- `src/arkanetra/data/hel1os.py`
 - `data/raw/aditya_l1_sample/hel1os_*.csv` — bundled sample data
 - Unit tests for HEL1OS parsing
 
@@ -172,7 +172,7 @@ Extend `data.mode` to support `aditya_l1` alongside `synthetic` and `goes_proxy`
 
 ### Step 3.3.2: Implement Aditya-L1 Build Path
 **Tasks:**
-- Extend `solaris.data.goes` or create `solaris.data.aditya_l1.py`
+- Extend `arkanetra.data.goes` or create `arkanetra.data.aditya_l1.py`
 - Route to SoLEXS/HEL1OS based on `data.aditya_l1` config
 - Preserve unified prediction schema
 - Preserve data provenance columns
@@ -308,8 +308,8 @@ Dashboard clearly displays source provenance and uses payload-aware terminology.
 
 | Deliverable | Status |
 |-------------|--------|
-| SoLEXS adapter (`src/solaris/data/solexs.py`) | Pending |
-| HEL1OS adapter (`src/solaris/data/hel1os.py`) | Pending |
+| SoLEXS adapter (`src/arkanetra/data/solexs.py`) | Pending |
+| HEL1OS adapter (`src/arkanetra/data/hel1os.py`) | Pending |
 | SoLEXS sample data | Pending |
 | HEL1OS sample data | Pending |
 | Config schema update | Pending |
@@ -388,5 +388,5 @@ Phase 4: Operational Decision-Support Prototype
 ---
 
 *Document created: 2026-06-16*
-*Author: Solaris Development Agent*
+*Author: ArkaNetra Development Agent*
 *Reference: DOC-601 Phase 3*

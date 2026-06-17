@@ -1,6 +1,6 @@
 # DOC-608: Phase 3 Verification Report
 
-**Project:** Project Solaris  
+**Project:** ArkaNetra  
 **Phase:** 3 — Aditya-L1 Payload Integration Prototype  
 **Date:** 2026-06-16  
 **Status:** COMPLETE
@@ -57,7 +57,7 @@ The `build_dataset()` function routes to the correct data adapter based on `data
 
 ### Phase 3.1: SoLEXS Adapter
 - [x] SoLEXS schema documentation (DOC-606)
-- [x] `src/solaris/data/solexs.py` implemented
+- [x] `src/arkanetra/data/solexs.py` implemented
 - [x] `load_solexs_csv()` function
 - [x] Quality flags (`ok`, `stale`, `suspect_high`, `invalid`)
 - [x] Cadence resampling
@@ -66,7 +66,7 @@ The `build_dataset()` function routes to the correct data adapter based on `data
 
 ### Phase 3.2: HEL1OS Adapter
 - [x] HEL1OS schema documentation (DOC-607)
-- [x] `src/solaris/data/hel1os.py` implemented
+- [x] `src/arkanetra/data/hel1os.py` implemented
 - [x] `load_hel1os_csv()` function
 - [x] Quality flags
 - [x] Cadence resampling
@@ -111,8 +111,8 @@ The `build_dataset()` function routes to the correct data adapter based on `data
 ## Files Created/Modified
 
 ### New Files
-- `src/solaris/data/solexs.py` — SoLEXS adapter
-- `src/solaris/data/hel1os.py` — HEL1OS adapter
+- `src/arkanetra/data/solexs.py` — SoLEXS adapter
+- `src/arkanetra/data/hel1os.py` — HEL1OS adapter
 - `data/raw/aditya_l1_sample/solexs_sample_20260101_20260102.csv` — SoLEXS sample
 - `data/raw/aditya_l1_sample/hel1os_sample_20260101_20260102.csv` — HEL1OS sample
 - `data/raw/aditya_l1_sample/noaa_flare_catalog_solexs.csv` — Flare catalog
@@ -126,7 +126,7 @@ The `build_dataset()` function routes to the correct data adapter based on `data
 
 ### Modified Files
 - `configs/mvp.yaml` — Added `aditya_l1` config section
-- `src/solaris/pipeline.py` — Added `aditya_l1` mode routing, updated manifest
+- `src/arkanetra/pipeline.py` — Added `aditya_l1` mode routing, updated manifest
 - `app/streamlit_app.py` — Dashboard provenance panel for `aditya_l1` mode
 - `tests/test_artifacts.py` — Added `test_run_mvp_aditya_l1_mode` integration test
 - `docs/DOC-402_Task_Board.md` — Updated with Phase 3 completion

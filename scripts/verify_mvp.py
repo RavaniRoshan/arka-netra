@@ -11,8 +11,8 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def main() -> int:
     required = [
-        ROOT / "data" / "processed" / "solaris_mvp_dataset.parquet",
-        ROOT / "reports" / "predictions" / "solaris_mvp_predictions.parquet",
+        ROOT / "data" / "processed" / "arkanetra_mvp_dataset.parquet",
+        ROOT / "reports" / "predictions" / "arkanetra_mvp_predictions.parquet",
         ROOT / "reports" / "metrics.csv",
         ROOT / "reports" / "event_summary.csv",
         ROOT / "reports" / "artifact_manifest.json",
@@ -24,7 +24,7 @@ def main() -> int:
             print(f"- {path}")
         return 1
 
-    predictions = pd.read_parquet(ROOT / "reports" / "predictions" / "solaris_mvp_predictions.parquet")
+    predictions = pd.read_parquet(ROOT / "reports" / "predictions" / "arkanetra_mvp_predictions.parquet")
     summary = pd.read_csv(ROOT / "reports" / "event_summary.csv")
     manifest = json.loads((ROOT / "reports" / "artifact_manifest.json").read_text(encoding="utf-8"))
 
@@ -48,7 +48,7 @@ def main() -> int:
         print("Manifest prediction row count does not match saved predictions.")
         return 1
 
-    print("Project Solaris MVP verification passed.")
+    print("ArkaNetra MVP verification passed.")
     print(f"Rows: {len(predictions)}")
     print(f"Scenarios: {', '.join(sorted(required_scenarios))}")
     print(f"Best model: {manifest['best_model']['model']} F1={manifest['best_model']['f1']:.3f}")

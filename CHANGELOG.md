@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to Project Solaris will be documented in this file.
+All notable changes to ArkaNetra will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
@@ -31,7 +31,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.1.0] - 2026-06-16
 
 ### Added
-- Project Solaris MVP: physics-informed multimodal solar flare early warning replay demo
+- ArkaNetra MVP: physics-informed multimodal solar flare early warning replay demo
 - Synthetic proxy data generator (GOES/RHESSI-style)
 - 12 physics-inspired features (hardness ratio, derivatives, volatility, waiting time, etc.)
 - Multimodal fusion surrogate (sklearn)
@@ -50,7 +50,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - FastAPI prediction API
 
 ### Changed
-- Initial release of Project Solaris MVP
+- Initial release of ArkaNetra MVP
 
 ## [0.0.1] - 2026-06-16
 

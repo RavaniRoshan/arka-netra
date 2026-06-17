@@ -1,15 +1,15 @@
-# Project Solaris MVP Explanation
+# ArkaNetra MVP Explanation
 
 Visual explanation of what has been built so far, how the current MVP works, and how the workflow moves from the current demo-hardened state toward the final full version.
 
-Source of truth: `docs/DOC-001_Project_Solaris_Constitution_v1.0.md`  
+Source of truth: `docs/DOC-001_Project_ArkaNetra_Constitution_v1.0.md`  
 Current implementation baseline: Milestone 1.1 demo-hardened MVP  
 Current data mode: synthetic proxy replay  
 Current product mode: replay-first mission console  
 
 ## 1. What We Have Built So Far
 
-Project Solaris is currently a runnable MVP for a physics-informed, multimodal solar flare early-warning workflow. It is not yet an operational solar forecasting system. It is a working product skeleton that proves the end-to-end contract:
+ArkaNetra is currently a runnable MVP for a physics-informed, multimodal solar flare early-warning workflow. It is not yet an operational solar forecasting system. It is a working product skeleton that proves the end-to-end contract:
 
 - Generate or ingest soft and hard X-ray-like time series.
 - Compute physics-inspired features.
@@ -38,7 +38,7 @@ The current MVP is designed to look and behave like a mission-control replay con
 
 ```mermaid
 flowchart LR
-    User["User / Judge"] --> Console["Project Solaris Mission Console"]
+    User["User / Judge"] --> Console["ArkaNetra Mission Console"]
     Console --> Scenario["Replay Scenario Selector"]
     Scenario --> Quiet["Quiet Sun replay"]
     Scenario --> CClass["C-class watch replay"]
@@ -71,7 +71,7 @@ The repo is organized so the MVP can be rebuilt, verified, and explained from fi
 flowchart TD
     Root["Project Root"] --> App["app/streamlit_app.py"]
     Root --> Config["configs/mvp.yaml"]
-    Root --> Src["src/solaris/"]
+    Root --> Src["src/arkanetra/"]
     Root --> Scripts["scripts/"]
     Root --> Data["data/processed/"]
     Root --> Reports["reports/"]
@@ -88,7 +88,7 @@ flowchart TD
     Scripts --> Build["build_mvp.py"]
     Scripts --> Verify["verify_mvp.py"]
 
-    Reports --> Predictions["predictions/solaris_mvp_predictions.parquet"]
+    Reports --> Predictions["predictions/arkanetra_mvp_predictions.parquet"]
     Reports --> Metrics["metrics.csv"]
     Reports --> Events["event_summary.md"]
     Reports --> Manifest["artifact_manifest.json"]
@@ -118,14 +118,14 @@ flowchart TD
     H --> I
     I --> J["Short-horizon flare labels"]
     J --> K["Chronological train / validation / test split"]
-    K --> L["data/processed/solaris_mvp_dataset.parquet"]
+    K --> L["data/processed/arkanetra_mvp_dataset.parquet"]
 ```
 
 Important rule: features must be computed from past and current data only. Future data must not leak into model inputs.
 
 ## 5. Model And Prediction Workflow
 
-The Constitution calls for a Dual-Branch Cross-Attention GRU. The current runnable MVP uses an executable sklearn/numpy multimodal fusion surrogate because the local runtime did not initially include PyTorch. A PyTorch model boundary already exists in `src/solaris/torch_models.py` for the next implementation phase.
+The Constitution calls for a Dual-Branch Cross-Attention GRU. The current runnable MVP uses an executable sklearn/numpy multimodal fusion surrogate because the local runtime did not initially include PyTorch. A PyTorch model boundary already exists in `src/arkanetra/torch_models.py` for the next implementation phase.
 
 ```mermaid
 flowchart TD
@@ -148,7 +148,7 @@ flowchart TD
     I --> M
     J --> M
     L --> M
-    M --> N["reports/predictions/solaris_mvp_predictions.parquet"]
+    M --> N["reports/predictions/arkanetra_mvp_predictions.parquet"]
 ```
 
 Current best generated demo model:
@@ -228,7 +228,7 @@ flowchart LR
 Current verification evidence:
 
 - Test suite: `6 passed`.
-- Verifier: `Project Solaris MVP verification passed`.
+- Verifier: `ArkaNetra MVP verification passed`.
 - Dashboard: HTTP 200 on localhost port 8501.
 - Prediction rows: 1728.
 - Current scenarios: Quiet Sun, C-class, M-class, X-class, Background archive.
@@ -237,8 +237,8 @@ Current verification evidence:
 
 ```mermaid
 flowchart TD
-    Dataset["solaris_mvp_dataset.parquet"] --> Meaning1["Processed features + labels + splits"]
-    Predictions["solaris_mvp_predictions.parquet"] --> Meaning2["Dashboard-ready prediction records"]
+    Dataset["arkanetra_mvp_dataset.parquet"] --> Meaning1["Processed features + labels + splits"]
+    Predictions["arkanetra_mvp_predictions.parquet"] --> Meaning2["Dashboard-ready prediction records"]
     Metrics["metrics.csv"] --> Meaning3["Model comparison metrics"]
     EventSummary["event_summary.md"] --> Meaning4["Scenario-level demo evidence"]
     Manifest["artifact_manifest.json"] --> Meaning5["Artifact inventory + limitations + best model"]
@@ -250,7 +250,7 @@ flowchart TD
 
 ```mermaid
 gantt
-    title Project Solaris Progress So Far
+    title ArkaNetra Progress So Far
     dateFormat  YYYY-MM-DD
     section Foundation
     DOC-001 Constitution              :done, 2026-06-16, 1d
@@ -282,12 +282,12 @@ flowchart TD
     P6 --> P7["Phase 7: Aditya-L1 SoLEXS + HEL1OS integration"]
     P7 --> P8["Phase 8: Operational decision-support workflow"]
     P8 --> P9["Phase 9: SEP and radiation-risk extension"]
-    P9 --> P10["Phase 10: Final full Solaris platform"]
+    P9 --> P10["Phase 10: Final full ArkaNetra platform"]
 ```
 
 ## 12. Future Full Architecture
 
-This is the architecture Solaris is moving toward, based on DOC-001.
+This is the architecture ArkaNetra is moving toward, based on DOC-001.
 
 ```mermaid
 flowchart TD
@@ -327,13 +327,13 @@ flowchart TD
 
 ## 13. Why This Workflow Matters
 
-Project Solaris is built around an operational question, not just a machine-learning question.
+ArkaNetra is built around an operational question, not just a machine-learning question.
 
 Most simple systems answer:
 
 - Will a flare occur?
 
-Solaris is designed to answer:
+ArkaNetra is designed to answer:
 
 - Will a flare occur?
 - How confident are we?
@@ -343,7 +343,7 @@ Solaris is designed to answer:
 
 ```mermaid
 mindmap
-  root((Project Solaris))
+  root((ArkaNetra))
     Forecasting
       Flare probability
       Lead-time estimate

@@ -1,4 +1,4 @@
-# Project Solaris MVP To Final-Version Development Plan
+# ArkaNetra MVP To Final-Version Development Plan
 
 ## Version 1.1: Stronger Hackathon MVP
 

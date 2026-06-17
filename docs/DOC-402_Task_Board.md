@@ -1,4 +1,4 @@
-# DOC-402: Project Solaris Task Board
+# DOC-402: ArkaNetra Task Board
 
 ## Done
 

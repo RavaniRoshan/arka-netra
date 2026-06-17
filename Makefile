@@ -23,7 +23,7 @@ typecheck:
 
 # Build Docker image
 build:
-	docker build -t project-solaris:latest .
+	docker build -t arka-netra:latest .
 
 # Run Docker containers
 docker-run:

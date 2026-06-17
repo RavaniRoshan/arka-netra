@@ -20,7 +20,7 @@ import argparse
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
-from solaris.data.hard_xray_proxy import download_rhessi_obs_summary
+from arkanetra.data.hard_xray_proxy import download_rhessi_obs_summary
 
 
 def main() -> None:

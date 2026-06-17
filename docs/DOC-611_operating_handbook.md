@@ -1,6 +1,6 @@
-# DOC-611: Project Solaris Operating Handbook
+# DOC-611: ArkaNetra Operating Handbook
 
-**Project:** Project Solaris
+**Project:** ArkaNetra
 **Version:** mvp-0.1 / Phase 5
 **Date:** 2026-06-16
 **Status:** COMPLETE
@@ -23,7 +23,7 @@
 
 ## 1. System Overview
 
-Project Solaris is a physics-informed multimodal solar flare early warning system. It ingests soft X-ray (GOES/SoLEXS) and hard X-ray (RHESSI/Fermi/HEL1OS) data and produces probabilistic flare predictions with uncertainty quantification, anomaly detection, and radiation-risk context.
+ArkaNetra is a physics-informed multimodal solar flare early warning system. It ingests soft X-ray (GOES/SoLEXS) and hard X-ray (RHESSI/Fermi/HEL1OS) data and produces probabilistic flare predictions with uncertainty quantification, anomaly detection, and radiation-risk context.
 
 **Core capabilities:**
 - Flare probability prediction (M/W/C/X-class) with 120-minute forecast horizon
@@ -52,7 +52,7 @@ Project Solaris is a physics-informed multimodal solar flare early warning syste
 ### Run the full pipeline
 
 ```bash
-python -m solaris.pipeline run --config configs/mvp.yaml --output run_output/
+python -m arkanetra.pipeline run --config configs/mvp.yaml --output run_output/
 ```
 
 ### Run the dashboard
@@ -94,7 +94,7 @@ All configuration lives in `configs/mvp.yaml`. Below is the complete reference.
 
 ```yaml
 project:
-  name: Project Solaris
+  name: ArkaNetra
   version: mvp-0.1    # Shown in predictions output
   mode: replay        # replay | live (future)
 ```
@@ -227,7 +227,7 @@ monitoring:
 
 ### 4.1 sklearn Architecture (Default)
 
-The default `SolarisFusionModel` uses:
+The default `ArkaNetraFusionModel` uses:
 - Feature augmentation: cross-attention score, Neupert consistency, physics-weighted risk
 - StandardScaler + LogisticRegression (class_weight=balanced)
 - Monte Carlo uncertainty via logit perturbation
@@ -256,8 +256,8 @@ Both produce a 0–100 anomaly index.
 ### 5.1 Full Pipeline
 
 ```python
-from solaris.config import load_config
-from solaris.pipeline import build_dataset, make_predictions, write_reports
+from arkanetra.config import load_config
+from arkanetra.pipeline import build_dataset, make_predictions, write_reports
 
 config = load_config("configs/mvp.yaml")
 dataset, events = build_dataset(config)
@@ -268,7 +268,7 @@ write_reports(Path("output"), dataset, events, predictions, bundle, config)
 ### 5.2 FastAPI Server
 
 ```bash
-uvicorn solaris.api.prediction_api:app --reload
+uvicorn arkanetra.api.prediction_api:app --reload
 ```
 
 Endpoints:
@@ -372,7 +372,7 @@ When `radiation.satellite_risk_enabled: true`:
 ### 8.1 Model Registry
 
 ```python
-from solaris.registry import get_registry
+from arkanetra.registry import get_registry
 
 registry = get_registry(Path("models/registry"))
 registry.register(
@@ -389,13 +389,13 @@ registry.load_checkpoint_path("v1.0.0")
 ### 8.2 Forecast Archive
 
 ```python
-from solaris.archive import append_forecast
+from arkanetra.archive import append_forecast
 
 run_id = append_forecast(predictions, config=config, metrics=bundle.metrics)
 ```
 
 ```python
-from solaris.archive import ForecastArchive
+from arkanetra.archive import ForecastArchive
 
 archive = ForecastArchive(Path("archive"))
 runs = archive.list_runs()
@@ -405,7 +405,7 @@ archive.load_predictions(run_id)
 ### 8.3 Drift Detection
 
 ```python
-from solaris.monitoring import detect_drift
+from arkanetra.monitoring import detect_drift
 
 report = detect_drift(reference_data, current_data, threshold=0.15)
 print(report.drift_detected, report.drift_score, report.drifted_features)
@@ -414,7 +414,7 @@ print(report.drift_detected, report.drift_score, report.drifted_features)
 ### 8.4 Retraining Triggers
 
 ```python
-from solaris.monitoring import should_retrain
+from arkanetra.monitoring import should_retrain
 
 should_retrain, reason = should_retrain(config, archive=archive)
 ```
@@ -427,7 +427,7 @@ Triggers fire when:
 
 1. Identify retrain trigger in `monitoring.log`
 2. Verify new data quality (check `quality_flag` in data source)
-3. Run pipeline with new data: `python -m solaris.pipeline run --config configs/mvp.yaml`
+3. Run pipeline with new data: `python -m arkanetra.pipeline run --config configs/mvp.yaml`
 4. Compare new metrics against baseline in `reports/metrics.csv`
 5. If acceptable, register new model version:
    ```python
@@ -483,12 +483,12 @@ Check that reference and current data cover similar time periods.
 ## Appendix A: File Structure
 
 ```
-src/solaris/
+src/arkanetra/
 ├── __init__.py
 ├── pipeline.py          # build_dataset, make_predictions, write_reports
 ├── config.py            # load_config, ensure_directories
 ├── features.py          # add_features, FEATURE_COLUMNS
-├── models.py            # train_models, SolarisFusionModel, GRUModel
+├── models.py            # train_models, ArkaNetraFusionModel, GRUModel
 ├── anomaly.py           # compute_anomaly_index (PCA or GRU AE)
 ├── torch_models.py      # DualBranchCrossAttentionGRU, GRUAutoencoder
 ├── training.py          # SequenceDataset, train_gru_model

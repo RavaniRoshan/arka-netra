@@ -7,17 +7,17 @@ import pytest
 pytest.importorskip("torch")
 
 import torch
-from solaris.config import ROOT, load_config
-from solaris.torch_models import (
+from arkanetra.config import ROOT, load_config
+from arkanetra.torch_models import (
     DualBranchCrossAttentionGRU,
     GRUAutoencoder,
     DualBranchWithAutoencoder,
     neupert_loss,
 )
-from solaris.training import SequenceDataset, _get_soft_hard_cols, train_gru_model, _config_hash
-from solaris.anomaly import compute_anomaly_index, _gru_ae_anomaly
-from solaris.models import GRUModel, train_models
-from solaris.pipeline import build_dataset
+from arkanetra.training import SequenceDataset, _get_soft_hard_cols, train_gru_model, _config_hash
+from arkanetra.anomaly import compute_anomaly_index, _gru_ae_anomaly
+from arkanetra.models import GRUModel, train_models
+from arkanetra.pipeline import build_dataset
 
 
 class TestNeupertLoss:
@@ -359,7 +359,7 @@ class TestTrainModelsGRU:
 
 class TestRegistryIntegration:
     def test_registry_accepts_gru_checkpoint(self, tmp_path):
-        from solaris.registry.model_registry import get_registry
+        from arkanetra.registry.model_registry import get_registry
         registry = get_registry()
         config = load_config()
         config["model"]["architecture"] = "gru"
@@ -395,7 +395,7 @@ class TestConfigHash:
 
 class TestMakePredictionsGRU:
     def test_make_predictions_gru_path(self):
-        from solaris.pipeline import make_predictions
+        from arkanetra.pipeline import make_predictions
         config = load_config()
         config["model"]["architecture"] = "gru"
         config["model"]["gru"] = {

@@ -1,8 +1,8 @@
 # DOC-501: Judge Question Bank
 
-## Why is Project Solaris not just another flare classifier?
+## Why is ArkaNetra not just another flare classifier?
 
-Project Solaris outputs risk, confidence, explanation, anomaly index, and mission context. The system is framed as operational decision support rather than a single black-box probability.
+ArkaNetra outputs risk, confidence, explanation, anomaly index, and mission context. The system is framed as operational decision support rather than a single black-box probability.
 
 ## Why combine soft and hard X-rays?
 

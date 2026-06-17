@@ -1,6 +1,6 @@
 # DOC-700: Grand Unified Implementation Plan (GUIP)
 
-Project: Project Solaris — Physics-Informed Multi-Modal Solar Flare Early Warning System
+Project: ArkaNetra — Physics-Informed Multi-Modal Solar Flare Early Warning System
 Prepared for: Bharatiya Antariksh Hackathon 2026, ISRO Problem Statement #15
 Document status: Active master execution plan
 Version: 1.0
@@ -10,7 +10,7 @@ Date: 2026-06-17
 
 ## Document Purpose
 
-This is the master plan for taking Project Solaris from its current documented state to the full vision described in DOC-001 (Constitution). It consolidates all six phases, includes a complete document registry, a timeline, and serves as the single source of truth for execution order.
+This is the master plan for taking ArkaNetra from its current documented state to the full vision described in DOC-001 (Constitution). It consolidates all six phases, includes a complete document registry, a timeline, and serves as the single source of truth for execution order.
 
 This document derives from DOC-001 (Constitution), inherits from DOC-601 (MVP-to-Final Plan), and validates against all Phase verification reports (DOC-602, DOC-608, DOC-610, DOC-613, DOC-614).
 
@@ -67,7 +67,7 @@ Test distribution by module:
 
 | File | Status | Description |
 |------|--------|-------------|
-| data/processed/solaris_mvp_dataset.parquet | Present | MVP dataset from synthetic mode |
+| data/processed/arkanetra_mvp_dataset.parquet | Present | MVP dataset from synthetic mode |
 | data/raw/goes_sample/goes_xrs_20170905_20170907.csv | Present | GOES XRS 2017 Sep 5-7 (X9.3 event) |
 | data/raw/goes_sample/rhessi_hard_xray_20170905_20170907.csv | Present | RHESSI hard X-ray for same period |
 | data/raw/goes_sample/noaa_flare_catalog_20170906.csv | Present | NOAA flare catalog for 2017-09-06 |
@@ -89,11 +89,11 @@ Test distribution by module:
 
 ## Part II: Document Registry
 
-All documents in the Project Solaris documentation hierarchy, indexed by creation order.
+All documents in the ArkaNetra documentation hierarchy, indexed by creation order.
 
 | DOC ID | Title | Date | Purpose |
 |--------|-------|------|---------|
-| DOC-001 | Project Solaris Constitution v1.0 | 2026-06-16 | Canonical foundation; defines mission, architecture, philosophy |
+| DOC-001 | ArkaNetra Constitution v1.0 | 2026-06-16 | Canonical foundation; defines mission, architecture, philosophy |
 | DOC-002 | Decision Log | 2026-06-16 | All architectural decisions with rationale |
 | DOC-401 | Hackathon Roadmap | 2026-06-16 | Hackathon-specific milestones and judging strategy |
 | DOC-402 | Task Board | 2026-06-16 | Task tracking across all phases |
@@ -196,7 +196,7 @@ All dates reference the implementation period beginning 2026-06-17.
 
 ### PHASE 3: Comprehensive Scientific Evaluation
 
-**Goal**: Make Solaris defensible as a research prototype.
+**Goal**: Make ArkaNetra defensible as a research prototype.
 
 **Tasks**:
 1. Implement event-based train/validation/test splits

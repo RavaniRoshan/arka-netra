@@ -1,6 +1,6 @@
 # DOC-703: Phase 3 Verification Report
 
-**Project:** Project Solaris  
+**Project:** ArkaNetra  
 **Phase:** 3 — Comprehensive Scientific Evaluation  
 **Date:** 2026-06-17  
 **Status:** COMPLETE
@@ -42,7 +42,7 @@
 |----------|--------|----------------|
 | **Soft-only logistic** | ✅ | `evaluation.py:ablation_study()` — LogisticRegression on soft features |
 | **Hard-only logistic** | ✅ NEW | `evaluation.py:ablation_study()` — LogisticRegression on hard features |
-| **Full multimodal** | ✅ | `evaluation.py:ablation_study()` — SolarisFusionModel with all features |
+| **Full multimodal** | ✅ | `evaluation.py:ablation_study()` — ArkaNetraFusionModel with all features |
 | **Physics-loss on** | ✅ | `evaluation.py:ablation_study()` — neupert_lambda from config |
 | **Physics-loss off** | ✅ NEW | `evaluation.py:ablation_study()` — neupert_lambda=0.0 |
 
@@ -77,10 +77,10 @@
 
 | File | Change |
 |------|--------|
-| **`src/solaris/evaluation.py`** | **NEW:** Comprehensive evaluation module — Brier score, ECE, calibration curve, false alarm analysis, lead-time analysis, ablation studies, attention heatmaps, calibration plots, SHAP explanations, full evaluation orchestrator, report generator |
-| `src/solaris/data/splits.py` | **Added:** `add_event_based_split()` — groups by flare event ID, prevents temporal leakage, enforces gap between train/val |
-| `src/solaris/models.py` | **Modified:** `metric_row()` now includes `brier_score`, `ece`, `false_alarm_rate`; added `_expected_calibration_error()` helper; added `brier_score_loss` import |
-| `src/solaris/pipeline.py` | **Modified:** `build_dataset()` uses event-based split when `evaluation.event_based_splits=true`; `write_reports()` runs comprehensive evaluation and generates heatmaps; `_evaluation_report()` includes Brier/ECE/FAR |
+| **`src/arkanetra/evaluation.py`** | **NEW:** Comprehensive evaluation module — Brier score, ECE, calibration curve, false alarm analysis, lead-time analysis, ablation studies, attention heatmaps, calibration plots, SHAP explanations, full evaluation orchestrator, report generator |
+| `src/arkanetra/data/splits.py` | **Added:** `add_event_based_split()` — groups by flare event ID, prevents temporal leakage, enforces gap between train/val |
+| `src/arkanetra/models.py` | **Modified:** `metric_row()` now includes `brier_score`, `ece`, `false_alarm_rate`; added `_expected_calibration_error()` helper; added `brier_score_loss` import |
+| `src/arkanetra/pipeline.py` | **Modified:** `build_dataset()` uses event-based split when `evaluation.event_based_splits=true`; `write_reports()` runs comprehensive evaluation and generates heatmaps; `_evaluation_report()` includes Brier/ECE/FAR |
 | `tests/test_evaluation.py` | **NEW:** 32 tests covering all evaluation components |
 | `tests/test_pipeline.py` | **Fixed:** Split assertion changed from order-dependent to set-based |
 | `tests/test_goes_adapter.py` | **Fixed:** Split assertion changed from order-dependent to set-based |
@@ -88,7 +88,7 @@
 
 ---
 
-## New Module: `src/solaris/evaluation.py`
+## New Module: `src/arkanetra/evaluation.py`
 
 ### Functions
 
@@ -101,7 +101,7 @@
 | `_false_alarm_rate()` | FP / (FP + TN) | sklearn |
 | `lead_time_analysis()` | Lead-time distribution, horizon fractions | pandas |
 | `false_alarm_analysis()` | FAR across multiple thresholds | sklearn |
-| `ablation_study()` | Soft-only, hard-only, physics on/off | sklearn, solaris.models |
+| `ablation_study()` | Soft-only, hard-only, physics on/off | sklearn, arkanetra.models |
 | `attention_heatmap()` | Cross-attention heatmap PNG | matplotlib |
 | `calibration_plot()` | Calibration curve PNG | matplotlib |
 | `shap_explanations()` | SHAP values + summary plot | shap, matplotlib |

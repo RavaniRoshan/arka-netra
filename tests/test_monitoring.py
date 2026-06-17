@@ -7,11 +7,11 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from solaris.monitoring.drift import DriftReport, compute_drift_score, detect_drift
-from solaris.monitoring.retrain import RetrainTrigger
-from solaris.monitoring.orchestrator import MonitoringOrchestrator, MonitoringCycleResult
-from solaris.monitoring.continuous_validation import ContinuousValidator, ValidationRecord
-from solaris.monitoring.status import generate_monitoring_dashboard, monitoring_dashboard_to_markdown
+from arkanetra.monitoring.drift import DriftReport, compute_drift_score, detect_drift
+from arkanetra.monitoring.retrain import RetrainTrigger
+from arkanetra.monitoring.orchestrator import MonitoringOrchestrator, MonitoringCycleResult
+from arkanetra.monitoring.continuous_validation import ContinuousValidator, ValidationRecord
+from arkanetra.monitoring.status import generate_monitoring_dashboard, monitoring_dashboard_to_markdown
 
 
 # ---------------------------------------------------------------------------
@@ -374,8 +374,8 @@ class TestMonitoringStatus:
 
 class TestMonitoringIntegration:
     def test_run_mvp_includes_monitoring(self):
-        from solaris.config import load_config
-        from solaris.pipeline import run_mvp
+        from arkanetra.config import load_config
+        from arkanetra.pipeline import run_mvp
         config = load_config()
         config["data"]["periods"] = 120
         config["monitoring"] = {
@@ -395,8 +395,8 @@ class TestMonitoringIntegration:
         assert val_report.exists()
 
     def test_drift_detects_shift_in_predictions(self):
-        from solaris.config import load_config
-        from solaris.pipeline import build_dataset, make_predictions
+        from arkanetra.config import load_config
+        from arkanetra.pipeline import build_dataset, make_predictions
         config = load_config()
         config["data"]["periods"] = 200
         dataset, events = build_dataset(config)

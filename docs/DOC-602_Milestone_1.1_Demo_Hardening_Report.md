@@ -2,7 +2,7 @@
 
 ## Status
 
-Milestone 1.1 upgrades the first Project Solaris MVP from a working scaffold into a more defensible demo package.
+Milestone 1.1 upgrades the first ArkaNetra MVP from a working scaffold into a more defensible demo package.
 
 ## Improvements Completed
 

@@ -177,7 +177,7 @@
   "calibration_plot": "C:\\Users\\shiva\\OneDrive\\Documents\\GITHUB\\L-1\\reports\\calibration_curve.png",
   "shap": {
     "available": false,
-    "reason": "name 'SolarisFusionModel' is not defined"
+    "reason": "name 'ArkaNetraFusionModel' is not defined"
   },
   "report_path": "C:\\Users\\shiva\\OneDrive\\Documents\\GITHUB\\L-1\\reports\\comprehensive_evaluation_report.md"
 }

@@ -1,11 +1,11 @@
 {
-  "project": "Project Solaris",
+  "project": "ArkaNetra",
   "mvp_version": "mvp-0.1",
   "data_mode": "synthetic_proxy_replay",
   "mission_mode": "synthetic",
   "soft_source": "SYNTHETIC",
   "hard_source": "NONE",
-  "generated_at_utc": "2026-06-17T05:54:13.441562+00:00",
+  "generated_at_utc": "2026-06-17T09:36:28.539341+00:00",
   "dataset_rows": 1728,
   "prediction_rows": 1728,
   "scenarios": [
@@ -24,14 +24,14 @@
   "staleness": {
     "score": 40.0,
     "factors": {
-      "age_hours": 3869.987066750555,
+      "age_hours": 3873.6912605722223,
       "age_score": 100
     },
     "is_stale": false,
     "details": {
       "last_timestamp": "2026-01-06 23:55:00+00:00",
       "rows": 1728,
-      "age_hours": 3869.987066750555,
+      "age_hours": 3873.6912605722223,
       "quality_fraction": 1.0
     }
   },
@@ -56,11 +56,11 @@
     "PyTorch GRU architecture is scaffolded but not required for the current runtime."
   ],
   "artifacts": {
-    "data/processed/solaris_mvp_dataset.parquet": {
+    "data/processed/arkanetra_mvp_dataset.parquet": {
       "exists": true,
       "bytes": 242137
     },
-    "reports/predictions/solaris_mvp_predictions.parquet": {
+    "reports/predictions/arkanetra_mvp_predictions.parquet": {
       "exists": true,
       "bytes": 188601
     },
@@ -70,7 +70,7 @@
     },
     "reports/evaluation_report.md": {
       "exists": true,
-      "bytes": 1279
+      "bytes": 1273
     },
     "reports/event_summary.csv": {
       "exists": true,
@@ -78,7 +78,7 @@
     },
     "reports/event_summary.md": {
       "exists": true,
-      "bytes": 746
+      "bytes": 740
     },
     "reports/top_features.json": {
       "exists": true,
@@ -88,13 +88,13 @@
       "exists": true,
       "bytes": 12689
     },
-    "docs/DOC-001_Project_Solaris_Constitution_v1.0.md": {
+    "docs/DOC-001_ArkaNetra_Constitution_v1.0.md": {
       "exists": true,
-      "bytes": 65502
+      "bytes": 65626
     },
     "docs/DOC-601_MVP_to_Final_Version_Development_Plan.md": {
       "exists": true,
-      "bytes": 11740
+      "bytes": 11984
     }
   }
 }

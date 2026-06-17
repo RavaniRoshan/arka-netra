@@ -14,7 +14,7 @@ import argparse
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
-from solaris.data.goes import download_goes_xrs
+from arkanetra.data.goes import download_goes_xrs
 
 
 def main() -> None:

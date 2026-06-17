@@ -1,13 +1,13 @@
 # DOC-603: Current MVP To Final Full-Version Implementation Plan
 
-Project Solaris: Physics-Informed Multi-Modal Solar Flare Early Warning System  
-Source of truth: DOC-001 Project Solaris Constitution v1.0  
+ArkaNetra: Physics-Informed Multi-Modal Solar Flare Early Warning System  
+Source of truth: DOC-001 ArkaNetra Constitution v1.0  
 Current baseline: Milestone 1.1 Demo-Hardened MVP  
 Date: 2026-06-16  
 
 ## Purpose
 
-This document is the step-by-step implementation plan for taking Project Solaris from the current MVP state to the final full version described in DOC-001.
+This document is the step-by-step implementation plan for taking ArkaNetra from the current MVP state to the final full version described in DOC-001.
 
 The current MVP is a replay-first, demo-hardened system. It already includes synthetic GOES/RHESSI-style proxy data, mandatory physics-inspired features, short-horizon flare labels, baseline models, a multimodal fusion surrogate, uncertainty output, anomaly index, Streamlit mission console, artifact manifest, event summary, verification script, and documentation spine.
 
@@ -16,7 +16,7 @@ The final full version is an Aditya-L1-aligned, physics-informed, explainable, m
 ## Guiding Principles
 
 1. Preserve DOC-001 as the canonical foundation.
-2. Do not turn Solaris into a generic flare classifier.
+2. Do not turn ArkaNetra into a generic flare classifier.
 3. Keep the core thesis visible: soft X-ray plus hard X-ray interaction contains useful precursor information.
 4. Treat physics-informed learning, uncertainty, explainability, and anomaly detection as required system components.
 5. Separate hackathon demo claims from operational claims.
@@ -32,7 +32,7 @@ Completed:
 - Project scaffold and Python package.
 - Config-driven MVP pipeline.
 - Synthetic proxy replay data generator.
-- Feature engineering for mandatory Solaris features.
+- Feature engineering for mandatory ArkaNetra features.
 - Chronological train, validation, and test split.
 - Baselines and executable multimodal fusion surrogate.
 - Monte Carlo-style uncertainty output.
@@ -79,9 +79,9 @@ Acceptance criteria:
 
 Tasks:
 
-- Extend `solaris.data.goes` to load the selected GOES data format.
+- Extend `arkanetra.data.goes` to load the selected GOES data format.
 - Normalize timestamps to UTC.
-- Map GOES channels into the Solaris soft X-ray schema.
+- Map GOES channels into the ArkaNetra soft X-ray schema.
 - Add data-quality flags for missing, zero, stale, or invalid flux rows.
 - Add tests for timestamp normalization and required columns.
 
@@ -119,7 +119,7 @@ Acceptance criteria:
 
 ## Phase 2: Hard X-Ray Proxy Integration
 
-Goal: add a real hard X-ray proxy so Solaris becomes genuinely multimodal in public-data mode.
+Goal: add a real hard X-ray proxy so ArkaNetra becomes genuinely multimodal in public-data mode.
 
 ### Step 2.1: Choose Hard X-Ray Proxy Source
 
@@ -144,7 +144,7 @@ Acceptance criteria:
 
 Tasks:
 
-- Extend `solaris.data.hard_xray_proxy`.
+- Extend `arkanetra.data.hard_xray_proxy`.
 - Normalize hard X-ray timestamps to UTC.
 - Resample or align the hard X-ray series to GOES cadence.
 - Add quality flags for missing or low-confidence hard X-ray samples.
@@ -310,7 +310,7 @@ Acceptance criteria:
 
 ## Phase 5: Evaluation And Scientific Validation
 
-Goal: make Solaris defensible as a research-grade prototype, not just a working demo.
+Goal: make ArkaNetra defensible as a research-grade prototype, not just a working demo.
 
 ### Step 5.1: Expand Metrics
 
@@ -439,7 +439,7 @@ Goal: transition from public proxy data to the future SoLEXS + HEL1OS mission id
 Tasks:
 
 - Define SoLEXS expected schema.
-- Map SoLEXS channels into Solaris soft X-ray features.
+- Map SoLEXS channels into ArkaNetra soft X-ray features.
 - Preserve payload metadata and quality flags.
 - Add source provenance to every row.
 
@@ -491,7 +491,7 @@ Acceptance criteria:
 
 ## Phase 8: Operational Decision-Support Prototype
 
-Goal: move Solaris from research/demo into an analyst workflow.
+Goal: move ArkaNetra from research/demo into an analyst workflow.
 
 ### Step 8.1: Add Alert Lifecycle
 
@@ -544,11 +544,11 @@ Deliverables:
 
 Acceptance criteria:
 
-- Another system can consume Solaris prediction records.
+- Another system can consume ArkaNetra prediction records.
 
 ## Phase 9: SEP And Radiation Risk Extension
 
-Goal: responsibly extend Solaris toward radiation-risk context without unsupported claims.
+Goal: responsibly extend ArkaNetra toward radiation-risk context without unsupported claims.
 
 ### Step 9.1: Define SEP Scope
 
@@ -587,7 +587,7 @@ Acceptance criteria:
 
 ## Phase 10: Final Full-Version Platform
 
-Goal: produce a complete Solaris platform suitable for research collaboration, operational pilot discussion, and future expansion.
+Goal: produce a complete ArkaNetra platform suitable for research collaboration, operational pilot discussion, and future expansion.
 
 ### Step 10.1: System Hardening
 
@@ -624,7 +624,7 @@ Deliverables:
 
 Acceptance criteria:
 
-- A new team can rebuild and defend Solaris from the documentation set.
+- A new team can rebuild and defend ArkaNetra from the documentation set.
 
 ### Step 10.3: Final Validation Package
 
@@ -645,7 +645,7 @@ Deliverables:
 
 Acceptance criteria:
 
-- Solaris demonstrates flare risk, uncertainty, explanation, anomaly detection, and mission relevance.
+- ArkaNetra demonstrates flare risk, uncertainty, explanation, anomaly detection, and mission relevance.
 - Limitations are explicit.
 - Claims are backed by evidence.
 

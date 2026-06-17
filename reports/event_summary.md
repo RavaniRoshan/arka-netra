@@ -1,4 +1,4 @@
-# Project Solaris Event Summary
+# ArkaNetra Event Summary
 
 | scenario | event_id | flare_class | rows | max_probability | max_anomaly_index | highest_state | first_warning_timestamp | median_warning_lead_minutes |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |

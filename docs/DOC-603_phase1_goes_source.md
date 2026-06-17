@@ -10,7 +10,7 @@
 
 ## Channels
 
-| Channel | Wavelength | Solaris Mapping | Used? |
+| Channel | Wavelength | ArkaNetra Mapping | Used? |
 | ------- | ---------- | --------------- | ----- |
 | Long (L) | 1-8 Angstrom | `soft_xray_flux` | Yes |
 | Short (S) | 0.5-4.0 Angstrom | Not used in Phase 1 | No |

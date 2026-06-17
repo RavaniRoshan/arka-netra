@@ -1,4 +1,4 @@
-# DOC-403: Project Solaris Risk Register
+# DOC-403: ArkaNetra Risk Register
 
 | Risk | Status | Mitigation |
 | --- | --- | --- |

@@ -1,6 +1,6 @@
 # DOC-614: Phase 6 Verification Report
 
-**Project:** Project Solaris
+**Project:** ArkaNetra
 **Phase:** Phase 6 — Final Full-Version Platform
 **Date:** 2026-06-16
 **Status:** COMPLETE
@@ -97,9 +97,9 @@
 
 | Module | Location | Status |
 |--------|----------|--------|
-| Real data validation pipeline | `src/solaris/data/` | Stable |
-| GRU hardening (PyTorch CI) | `pyproject.toml`, `src/solaris/training.py` | Stable |
-| Neupert loss validation | `src/solaris/torch_models.py` | Stable |
+| Real data validation pipeline | `src/arkanetra/data/` | Stable |
+| GRU hardening (PyTorch CI) | `pyproject.toml`, `src/arkanetra/training.py` | Stable |
+| Neupert loss validation | `src/arkanetra/torch_models.py` | Stable |
 | GRU-specific tests | `tests/` | Stable |
 | Comprehensive evaluation | `scripts/run_evaluation.py` | Stable |
 | Dashboard analysis mode | `app/streamlit_app.py` | Stable |

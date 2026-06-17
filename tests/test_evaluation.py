@@ -11,8 +11,8 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import StandardScaler
 
-from solaris.data.splits import add_chronological_split, add_event_based_split
-from solaris.evaluation import (
+from arkanetra.data.splits import add_chronological_split, add_event_based_split
+from arkanetra.evaluation import (
     _brier_score,
     _calibration_curve,
     _expected_calibration_error,
@@ -24,8 +24,8 @@ from solaris.evaluation import (
     lead_time_analysis,
     shap_explanations,
 )
-from solaris.features import FEATURE_COLUMNS
-from solaris.models import metric_row
+from arkanetra.features import FEATURE_COLUMNS
+from arkanetra.models import metric_row
 
 
 # ---------------------------------------------------------------------------
@@ -274,7 +274,7 @@ class TestFalseAlarmAnalysis:
 
 class TestAttentionHeatmap:
     def test_heatmap_creates_file(self, tmp_path):
-        from solaris.evaluation import HAS_MATPLOTLIB
+        from arkanetra.evaluation import HAS_MATPLOTLIB
         if not HAS_MATPLOTLIB:
             pytest.skip("matplotlib not installed")
         attention = pd.DataFrame(np.random.random((8, 8)))
@@ -284,7 +284,7 @@ class TestAttentionHeatmap:
         assert result.stat().st_size > 0
 
     def test_heatmap_custom_title(self, tmp_path):
-        from solaris.evaluation import HAS_MATPLOTLIB
+        from arkanetra.evaluation import HAS_MATPLOTLIB
         if not HAS_MATPLOTLIB:
             pytest.skip("matplotlib not installed")
         attention = pd.DataFrame(np.random.random((6, 6)))
@@ -293,7 +293,7 @@ class TestAttentionHeatmap:
         assert result.exists()
 
     def test_heatmap_creates_parent_dir(self, tmp_path):
-        from solaris.evaluation import HAS_MATPLOTLIB
+        from arkanetra.evaluation import HAS_MATPLOTLIB
         if not HAS_MATPLOTLIB:
             pytest.skip("matplotlib not installed")
         attention = pd.DataFrame(np.random.random((4, 4)))
@@ -308,7 +308,7 @@ class TestAttentionHeatmap:
 
 class TestCalibrationPlot:
     def test_calibration_creates_file(self, tmp_path):
-        from solaris.evaluation import HAS_MATPLOTLIB
+        from arkanetra.evaluation import HAS_MATPLOTLIB
         if not HAS_MATPLOTLIB:
             pytest.skip("matplotlib not installed")
         y_true = np.array([0, 0, 0, 0, 1, 1, 1, 1])
@@ -325,24 +325,24 @@ class TestCalibrationPlot:
 
 class TestShapExplanations:
     def test_shap_returns_dict(self):
-        from solaris.models import SolarisFusionModel
+        from arkanetra.models import ArkaNetraFusionModel
         rng = np.random.default_rng(42)
         n = 100
         frame = pd.DataFrame({c: rng.random(n) for c in FEATURE_COLUMNS})
         frame["flare_label"] = rng.integers(0, 2, n)
-        model = SolarisFusionModel(random_seed=42, neupert_lambda=0.18)
+        model = ArkaNetraFusionModel(random_seed=42, neupert_lambda=0.18)
         model.fit(frame)
         with tempfile.TemporaryDirectory() as tmpdir:
             result = shap_explanations(model, frame, FEATURE_COLUMNS, Path(tmpdir))
         assert isinstance(result, dict)
 
     def test_shap_top_features(self):
-        from solaris.models import SolarisFusionModel
+        from arkanetra.models import ArkaNetraFusionModel
         rng = np.random.default_rng(42)
         n = 100
         frame = pd.DataFrame({c: rng.random(n) for c in FEATURE_COLUMNS})
         frame["flare_label"] = rng.integers(0, 2, n)
-        model = SolarisFusionModel(random_seed=42, neupert_lambda=0.18)
+        model = ArkaNetraFusionModel(random_seed=42, neupert_lambda=0.18)
         model.fit(frame)
         with tempfile.TemporaryDirectory() as tmpdir:
             result = shap_explanations(model, frame, FEATURE_COLUMNS, Path(tmpdir))
@@ -357,8 +357,8 @@ class TestShapExplanations:
 
 class TestEvaluationIntegration:
     def test_comprehensive_metrics_on_pipeline_data(self):
-        from solaris.config import load_config
-        from solaris.pipeline import build_dataset, make_predictions
+        from arkanetra.config import load_config
+        from arkanetra.pipeline import build_dataset, make_predictions
         config = load_config()
         dataset, events = build_dataset(config)
         predictions, bundle = make_predictions(dataset, config, events)
@@ -371,8 +371,8 @@ class TestEvaluationIntegration:
         assert 0 <= row["brier_score"] <= 1
 
     def test_lead_time_on_pipeline_predictions(self):
-        from solaris.config import load_config
-        from solaris.pipeline import build_dataset, make_predictions
+        from arkanetra.config import load_config
+        from arkanetra.pipeline import build_dataset, make_predictions
         config = load_config()
         dataset, events = build_dataset(config)
         predictions, _ = make_predictions(dataset, config, events)
@@ -382,8 +382,8 @@ class TestEvaluationIntegration:
         assert "median_lead_minutes" in result
 
     def test_event_split_on_pipeline_data(self):
-        from solaris.config import load_config
-        from solaris.pipeline import build_dataset
+        from arkanetra.config import load_config
+        from arkanetra.pipeline import build_dataset
         config = load_config()
         config["evaluation"] = {"event_based_splits": True}
         dataset, events = build_dataset(config)

@@ -1,4 +1,4 @@
-# Project Solaris
+# ArkaNetra
 
 Physics-informed multimodal solar flare early-warning MVP for ISRO Problem Statement #15.
 
@@ -31,8 +31,8 @@ python scripts/build_mvp.py
 
 Outputs:
 
-- `data/processed/solaris_mvp_dataset.parquet`
-- `reports/predictions/solaris_mvp_predictions.parquet`
+- `data/processed/arkanetra_mvp_dataset.parquet`
+- `reports/predictions/arkanetra_mvp_predictions.parquet`
 - `reports/metrics.csv`
 - `reports/evaluation_report.md`
 - `reports/event_summary.md`

@@ -1,6 +1,6 @@
 # DOC-705: Phase 5 Verification Report
 
-**Project:** Project Solaris  
+**Project:** ArkaNetra  
 **Phase:** 5 — SEP & Radiation Risk Extension  
 **Date:** 2026-06-17  
 **Status:** COMPLETE
@@ -66,7 +66,7 @@
 
 ## New Module: Human Spaceflight Radiation Dose Estimation
 
-### `src/solaris/radiation/human_spaceflight.py`
+### `src/arkanetra/radiation/human_spaceflight.py`
 
 | Component | Description |
 |-----------|-------------|
@@ -127,8 +127,8 @@
 
 | File | Change |
 |------|--------|
-| **`src/solaris/radiation/human_spaceflight.py`** | **NEW:** `AstronautDoseEstimate`, `MissionPhase`, `ShieldingLevel`, `estimate_mission_dose()`, `estimate_eva_dose()`, `compute_human_dose_for_predictions()` |
-| `src/solaris/radiation/__init__.py` | **Updated:** Exports new human_spaceflight module classes and functions |
+| **`src/arkanetra/radiation/human_spaceflight.py`** | **NEW:** `AstronautDoseEstimate`, `MissionPhase`, `ShieldingLevel`, `estimate_mission_dose()`, `estimate_eva_dose()`, `compute_human_dose_for_predictions()` |
+| `src/arkanetra/radiation/__init__.py` | **Updated:** Exports new human_spaceflight module classes and functions |
 | `tests/test_radiation.py` | **NEW:** 38 tests covering all radiation modules |
 
 ---
@@ -136,7 +136,7 @@
 ## Module Architecture
 
 ```
-solaris/radiation/
+arkanetra/radiation/
 ├── __init__.py                 # Exports all public APIs
 ├── sep_model.py                # SEPRiskModel, compute_sep_risk_index, SEPRiskResult
 ├── particle_data.py            # ParticleData, fetch_goes_particle_data

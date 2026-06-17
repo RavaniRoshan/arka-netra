@@ -6,8 +6,8 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from solaris.config import load_config
-from solaris.data.hard_xray_proxy import (
+from arkanetra.config import load_config
+from arkanetra.data.hard_xray_proxy import (
     _add_quality_flags,
     _parse_energy_range,
     build_hard_xray_data,
@@ -72,7 +72,7 @@ def test_parse_energy_range():
 def test_build_from_sample_csv():
     config = load_config()
     data_cfg = config["data"]
-    from solaris.config import ROOT
+    from arkanetra.config import ROOT
     sample = ROOT / "data" / "raw" / "goes_sample" / "rhessi_hard_xray_20170905_20170907.csv"
     if not sample.exists():
         pytest.skip("Sample RHESSI CSV not found")
@@ -109,7 +109,7 @@ def test_build_outside_time_range_returns_none():
 
 def test_pipeline_multimodal_contract():
     """GOES + RHESSI together: all features have meaningful non-zero hard X-ray."""
-    from solaris.pipeline import build_dataset
+    from arkanetra.pipeline import build_dataset
 
     config = load_config()
     config["data"]["mode"] = "goes_proxy"
@@ -127,7 +127,7 @@ def test_pipeline_multimodal_contract():
 
 def test_hard_xray_quality_flags_propagate():
     """data_quality column survives pipeline."""
-    from solaris.pipeline import build_dataset
+    from arkanetra.pipeline import build_dataset
 
     config = load_config()
     config["data"]["mode"] = "goes_proxy"

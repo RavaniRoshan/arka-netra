@@ -1,4 +1,4 @@
-# Project Solaris MVP Evaluation Report
+# ArkaNetra MVP Evaluation Report
 
 ## Baseline And Model Comparison
 

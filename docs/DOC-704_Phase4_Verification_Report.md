@@ -1,6 +1,6 @@
 # DOC-704: Phase 4 Verification Report
 
-**Project:** Project Solaris  
+**Project:** ArkaNetra  
 **Phase:** 4 — Monitoring & Continuous Retraining  
 **Date:** 2026-06-17  
 **Status:** COMPLETE
@@ -78,12 +78,12 @@
 
 | File | Change |
 |------|--------|
-| **`src/solaris/monitoring/orchestrator.py`** | **NEW:** `MonitoringOrchestrator` class — ties drift detection, retraining, validation into a single monitoring cycle |
-| **`src/solaris/monitoring/continuous_validation.py`** | **NEW:** `ContinuousValidator` class — tracks model performance over time, detects degradation |
-| **`src/solaris/monitoring/status.py`** | **NEW:** Dashboard generation functions — health score, status reports, markdown output |
-| `src/solaris/monitoring/__init__.py` | **Updated:** Exports new orchestrator, validator, and status modules |
-| `src/solaris/monitoring/drift.py` | **Fixed:** `_wasserstein_distance()` handles different-length arrays without ValueError |
-| `src/solaris/pipeline.py` | **Updated:** `run_mvp()` calls `_run_monitoring()` after predictions; `_run_monitoring()` creates orchestrator + validator, runs cycle, generates 4 report files |
+| **`src/arkanetra/monitoring/orchestrator.py`** | **NEW:** `MonitoringOrchestrator` class — ties drift detection, retraining, validation into a single monitoring cycle |
+| **`src/arkanetra/monitoring/continuous_validation.py`** | **NEW:** `ContinuousValidator` class — tracks model performance over time, detects degradation |
+| **`src/arkanetra/monitoring/status.py`** | **NEW:** Dashboard generation functions — health score, status reports, markdown output |
+| `src/arkanetra/monitoring/__init__.py` | **Updated:** Exports new orchestrator, validator, and status modules |
+| `src/arkanetra/monitoring/drift.py` | **Fixed:** `_wasserstein_distance()` handles different-length arrays without ValueError |
+| `src/arkanetra/pipeline.py` | **Updated:** `run_mvp()` calls `_run_monitoring()` after predictions; `_run_monitoring()` creates orchestrator + validator, runs cycle, generates 4 report files |
 | `tests/test_monitoring.py` | **NEW:** 34 tests covering all monitoring components |
 
 ---
@@ -91,7 +91,7 @@
 ## Module Architecture
 
 ```
-solaris/monitoring/
+arkanetra/monitoring/
 ├── __init__.py                    # Exports all public APIs
 ├── drift.py                       # DriftReport, detect_drift(), compute_drift_score()
 ├── retrain.py                     # RetrainTrigger, should_retrain()

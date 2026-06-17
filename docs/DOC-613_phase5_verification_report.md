@@ -1,6 +1,6 @@
 # DOC-613: Phase 5 Verification Report
 
-**Project:** Project Solaris
+**Project:** ArkaNetra
 **Phase:** Phase 5 — Space-Weather Platform
 **Date:** 2026-06-16
 **Status:** COMPLETE
@@ -28,21 +28,21 @@
 
 | Requirement | Status |
 |-------------|--------|
-| Sequence dataset builder | ✅ `SequenceDataset` in `solaris/training.py` |
-| GRU training loop | ✅ `train_gru_model()` in `solaris/training.py` |
-| GRU autoencoder for anomaly | ✅ `GRUAutoencoder` in `solaris/torch_models.py` |
+| Sequence dataset builder | ✅ `SequenceDataset` in `arkanetra/training.py` |
+| GRU training loop | ✅ `train_gru_model()` in `arkanetra/training.py` |
+| GRU autoencoder for anomaly | ✅ `GRUAutoencoder` in `arkanetra/torch_models.py` |
 | Model architecture toggle | ✅ `model.architecture` in `configs/mvp.yaml` |
-| Checkpoint save/load | ✅ `save_checkpoint` and `load_checkpoint` in `solaris/training.py` |
-| Pyramid-trained PyTorch model | ✅ `DualBranchCrossAttentionGRU` in `solaris/torch_models.py` |
+| Checkpoint save/load | ✅ `save_checkpoint` and `load_checkpoint` in `arkanetra/training.py` |
+| Pyramid-trained PyTorch model | ✅ `DualBranchCrossAttentionGRU` in `arkanetra/torch_models.py` |
 | Ablation report | ✅ `models/registry/` with metrics capture |
 
 ### 5.2 SEP-Risk Module
 
 | Requirement | Status |
 |-------------|--------|
-| SEP risk scoring | ✅ `SEPRiskModel` in `solaris/radiation/sep_model.py` |
-| Particle data ingestion | ✅ `fetch_goes_particle_data` in `solaris/radiation/particle_data.py` |
-| Satellite risk context | ✅ `assess_satellite_risk` in `solaris/radiation/satellite_risk.py` |
+| SEP risk scoring | ✅ `SEPRiskModel` in `arkanetra/radiation/sep_model.py` |
+| Particle data ingestion | ✅ `fetch_goes_particle_data` in `arkanetra/radiation/particle_data.py` |
+| Satellite risk context | ✅ `assess_satellite_risk` in `arkanetra/radiation/satellite_risk.py` |
 | SEP risk separate from flare probability | ✅ Separate `sep_risk_index` column |
 | Experimental disclaimers | ✅ `is_experimental: true` on all outputs |
 | GRU model specified message: Use ModelBundle.final_model instead | ✅ |
@@ -97,19 +97,19 @@
 
 | Module | Location | Status |
 |--------|----------|--------|
-| SequenceDataset | `solaris/training.py` | Stable |
-| train_gru_model | `solaris/training.py` | Stable |
-| GRUAutoencoder | `solaris/torch_models.py` | Stable |
-| DualBranchCrossAttentionGRU | `solaris/torch_models.py` | Stable (upgraded with num_layers) |
-| GRUModel wrapper | `solaris/models.py` | Stable |
-| compute_anomaly_index | `solaris/anomaly.py` | Stable (PCA + GRU toggle) |
-| SEPRiskModel | `solaris/radiation/sep_model.py` | Stable (experimental) |
-| ParticleData | `solaris/radiation/particle_data.py` | Stable (sample/fallback) |
-| assess_satellite_risk | `solaris/radiation/satellite_risk.py` | Stable (informational) |
-| ModelRegistry | `solaris/registry/model_registry.py` | Stable |
-| ForecastArchive | `solaris/archive/forecast_archive.py` | Stable |
-| detect_drift | `solaris/monitoring/drift.py` | Stable |
-| RetrainTrigger | `solaris/monitoring/retrain.py` | Stable |
+| SequenceDataset | `arkanetra/training.py` | Stable |
+| train_gru_model | `arkanetra/training.py` | Stable |
+| GRUAutoencoder | `arkanetra/torch_models.py` | Stable |
+| DualBranchCrossAttentionGRU | `arkanetra/torch_models.py` | Stable (upgraded with num_layers) |
+| GRUModel wrapper | `arkanetra/models.py` | Stable |
+| compute_anomaly_index | `arkanetra/anomaly.py` | Stable (PCA + GRU toggle) |
+| SEPRiskModel | `arkanetra/radiation/sep_model.py` | Stable (experimental) |
+| ParticleData | `arkanetra/radiation/particle_data.py` | Stable (sample/fallback) |
+| assess_satellite_risk | `arkanetra/radiation/satellite_risk.py` | Stable (informational) |
+| ModelRegistry | `arkanetra/registry/model_registry.py` | Stable |
+| ForecastArchive | `arkanetra/archive/forecast_archive.py` | Stable |
+| detect_drift | `arkanetra/monitoring/drift.py` | Stable |
+| RetrainTrigger | `arkanetra/monitoring/retrain.py` | Stable |
 | DOC-611 | `docs/DOC-611_operating_handbook.md` | Complete |
 | DOC-612 | `docs/DOC-612_publication_materials.md` | Complete |
 | DOC-613 | `docs/DOC-613_phase5_verification_report.md` | Complete |
@@ -121,14 +121,14 @@
 1. `python scripts/verify_mvp.py` — passed, F1=0.893
 2. `python -m pytest tests/ -q --tb=no` — 79 passed, 0 failed
 3. All new Python modules importable:
-   - `from solaris.training import SequenceDataset, train_gru_model`
-   - `from solaris.torch_models import GRUAutoencoder`
-   - `from solaris.radiation import SEPRiskModel, compute_sep_risk_index`
-   - `from solaris.radiation import fetch_goes_particle_data`
-   - `from solaris.radiation import SatelliteRiskContext, assess_satellite_risk`
-   - `from solaris.registry import ModelRegistry`
-   - `from solaris.archive import ForecastArchive, append_forecast`
-   - `from solaris.monitoring import detect_drift, should_retrain`
+   - `from arkanetra.training import SequenceDataset, train_gru_model`
+   - `from arkanetra.torch_models import GRUAutoencoder`
+   - `from arkanetra.radiation import SEPRiskModel, compute_sep_risk_index`
+   - `from arkanetra.radiation import fetch_goes_particle_data`
+   - `from arkanetra.radiation import SatelliteRiskContext, assess_satellite_risk`
+   - `from arkanetra.registry import ModelRegistry`
+   - `from arkanetra.archive import ForecastArchive, append_forecast`
+   - `from arkanetra.monitoring import detect_drift, should_retrain`
 4. `torch` added as optional dependency in `pyproject.toml`
 5. `configs/mvp.yaml` extended with GRU, radiation, registry, archive, monitoring sections
 6. Pipeline `make_predictions` integrates all Phase 5 modules via `_add_radiation_context`

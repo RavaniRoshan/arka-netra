@@ -5,7 +5,7 @@ from pathlib import Path
 import pandas as pd
 import pytest
 
-from solaris.data.goes import (
+from arkanetra.data.goes import (
     _add_quality_flags,
     _flare_class_to_severity,
     _resample_to_cadence,
@@ -60,8 +60,8 @@ def test_resample_to_cadence():
 
 
 def test_build_goes_replay_matches_contract():
-    from solaris.config import load_config
-    from solaris.data.goes import build_goes_replay
+    from arkanetra.config import load_config
+    from arkanetra.data.goes import build_goes_replay
 
     config = load_config()
     config["data"]["mode"] = "goes_proxy"
@@ -84,8 +84,8 @@ def test_build_goes_replay_matches_contract():
 
 
 def test_pipeline_contract_goes_mode():
-    from solaris.config import load_config
-    from solaris.pipeline import build_dataset
+    from arkanetra.config import load_config
+    from arkanetra.pipeline import build_dataset
 
     config = load_config()
     config["data"]["mode"] = "goes_proxy"

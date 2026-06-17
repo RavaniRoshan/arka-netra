@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-17T05:54:15.246141+00:00",
+  "generated_at": "2026-06-17T09:36:29.450296+00:00",
   "orchestrator": {
     "retrain_trigger_mode": "manual",
     "drift_threshold": 0.15,
@@ -9,36 +9,104 @@
       "drift_threshold": 0.15,
       "drift_history_length": 2
     },
-    "total_cycles": 1,
+    "total_cycles": 10,
     "drift_summary": {
       "detected": 0,
-      "clear": 1
+      "clear": 10
     },
     "recent_cycles": [
       {
-        "timestamp": "2026-06-17T05:54:15.240661+00:00",
+        "timestamp": "2026-06-17T09:33:18.379772+00:00",
         "drift_detected": false,
         "drift_score": 0.0,
         "retrain_triggered": false,
         "validation_passed": true,
-        "duration_seconds": 0.004427
+        "duration_seconds": 0.005565
+      },
+      {
+        "timestamp": "2026-06-17T09:34:05.338077+00:00",
+        "drift_detected": false,
+        "drift_score": 0.0,
+        "retrain_triggered": false,
+        "validation_passed": true,
+        "duration_seconds": 0.006023
+      },
+      {
+        "timestamp": "2026-06-17T09:34:52.478283+00:00",
+        "drift_detected": false,
+        "drift_score": 0.0,
+        "retrain_triggered": false,
+        "validation_passed": true,
+        "duration_seconds": 0.005264
+      },
+      {
+        "timestamp": "2026-06-17T09:35:38.872755+00:00",
+        "drift_detected": false,
+        "drift_score": 0.0,
+        "retrain_triggered": false,
+        "validation_passed": true,
+        "duration_seconds": 0.005571
+      },
+      {
+        "timestamp": "2026-06-17T09:36:29.443945+00:00",
+        "drift_detected": false,
+        "drift_score": 0.0,
+        "retrain_triggered": false,
+        "validation_passed": true,
+        "duration_seconds": 0.005744
       }
     ],
     "archive_available": false
   },
   "validation": {
-    "total_validations": 1,
+    "total_validations": 10,
     "baseline_f1": 0.9,
     "baseline_roc_auc": 0.9986102719033233,
     "f1_threshold": 0.1,
-    "mean_f1": 0.9044585987261147,
-    "std_f1": 0.0,
+    "mean_f1": 0.9044585987261146,
+    "std_f1": 1.1102230246251565e-16,
     "min_f1": 0.9044585987261147,
     "max_f1": 0.9044585987261147,
     "pass_rate": 1.0,
     "recent_results": [
       {
-        "timestamp": "2026-06-17T05:54:15.240027+00:00",
+        "timestamp": "2026-06-17T09:33:18.378987+00:00",
+        "model_version": "mvp-0.1",
+        "f1_score": 0.9044585987261147,
+        "roc_auc": 0.9991691873361565,
+        "n_samples": 1728,
+        "passed": true,
+        "degradation": -0.004458598726114649
+      },
+      {
+        "timestamp": "2026-06-17T09:34:05.337228+00:00",
+        "model_version": "mvp-0.1",
+        "f1_score": 0.9044585987261147,
+        "roc_auc": 0.9991691873361565,
+        "n_samples": 1728,
+        "passed": true,
+        "degradation": -0.004458598726114649
+      },
+      {
+        "timestamp": "2026-06-17T09:34:52.477463+00:00",
+        "model_version": "mvp-0.1",
+        "f1_score": 0.9044585987261147,
+        "roc_auc": 0.9991691873361565,
+        "n_samples": 1728,
+        "passed": true,
+        "degradation": -0.004458598726114649
+      },
+      {
+        "timestamp": "2026-06-17T09:35:38.871973+00:00",
+        "model_version": "mvp-0.1",
+        "f1_score": 0.9044585987261147,
+        "roc_auc": 0.9991691873361565,
+        "n_samples": 1728,
+        "passed": true,
+        "degradation": -0.004458598726114649
+      },
+      {
+        "timestamp": "2026-06-17T09:36:29.443296+00:00",
         "model_version": "mvp-0.1",
         "f1_score": 0.9044585987261147,
         "roc_auc": 0.9991691873361565,

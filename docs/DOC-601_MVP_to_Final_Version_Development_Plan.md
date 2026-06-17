@@ -34,7 +34,7 @@ Implementation work:
 - Integrate RHESSI first if feasible; otherwise integrate Fermi GBM as the hard X-ray proxy.
 - Implement event-based dataset construction so train, validation, and test splits do not leak event context.
 - Add multi-horizon labels, at minimum short nowcast and longer watch windows.
-- Replace the sklearn fusion surrogate with the PyTorch DualBranchCrossAttentionGRU in `src/solaris/torch_models.py`.
+- Replace the sklearn fusion surrogate with the PyTorch DualBranchCrossAttentionGRU in `src/arkanetra/torch_models.py`.
 - Implement GRU autoencoder anomaly detection instead of the current PCA reconstruction proxy.
 - Add calibration metrics and threshold policy tuning.
 
@@ -84,7 +84,7 @@ Exit criteria:
 
 ## Phase 5: Space-Weather Platform
 
-Objective: evolve Solaris from flare warning into broader mission-risk support.
+Objective: evolve ArkaNetra from flare warning into broader mission-risk support.
 
 Implementation work:
 
@@ -96,13 +96,13 @@ Implementation work:
 
 Exit criteria:
 
-- Solaris supports flare risk, anomaly detection, uncertainty, explanation, and radiation-risk context without unsupported claims.
+- ArkaNetra supports flare risk, anomaly detection, uncertainty, explanation, and radiation-risk context without unsupported claims.
 - The system is credible for research collaboration or an operational pilot discussion.
 - Documentation is complete enough for a new science and engineering team to continue development.
 
 ## Phase 6: Final Full-Version Platform
 
-Objective: bring Solaris from hackathon demonstrator to a credible research-grade, operationally-oriented platform aligned with DOC-001 Constitution Part X product stages.
+Objective: bring ArkaNetra from hackathon demonstrator to a credible research-grade, operationally-oriented platform aligned with DOC-001 Constitution Part X product stages.
 
 ### Phase 6.1: Real Data Validation
 
@@ -148,7 +148,7 @@ Exit criteria:
 
 ### Phase 6.3: Evaluation & Ablations
 
-Goal: make Solaris defensible as a research prototype with comprehensive metrics and ablation studies.
+Goal: make ArkaNetra defensible as a research prototype with comprehensive metrics and ablation studies.
 
 Implementation work:
 
@@ -190,7 +190,7 @@ Exit criteria:
 
 ### Phase 6.5: Release Process
 
-Goal: make Solaris installable, reproducible, and deployable.
+Goal: make ArkaNetra installable, reproducible, and deployable.
 
 Implementation work:
 

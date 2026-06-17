@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-Project Solaris Evaluation Script
+ArkaNetra Evaluation Script
 
-This script runs the comprehensive evaluation suite for Project Solaris.
+This script runs the comprehensive evaluation suite for ArkaNetra.
 It validates the system against the Phase 6 exit criteria.
 """
 
@@ -11,15 +11,15 @@ import json
 import sys
 from pathlib import Path
 
-from solaris.config import ROOT
-from solaris.pipeline import make_predictions
-from solaris.models import train_models
-from solaris.features import compute_features
-from solaris.data import build_dataset
-from solaris.alerts import AlertStateMachine
-from solaris.archive import ForecastArchive
-from solaris.monitoring import detect_drift
-from solaris.registry import ModelRegistry
+from arkanetra.config import ROOT
+from arkanetra.pipeline import make_predictions
+from arkanetra.models import train_models
+from arkanetra.features import compute_features
+from arkanetra.data import build_dataset
+from arkanetra.alerts import AlertStateMachine
+from arkanetra.archive import ForecastArchive
+from arkanetra.monitoring import detect_drift
+from arkanetra.registry import ModelRegistry
 
 
 def run_evaluation(config_path: str, output_dir: str) -> dict:
@@ -33,7 +33,7 @@ def run_evaluation(config_path: str, output_dir: str) -> dict:
     Returns:
         Dictionary containing evaluation results
     """
-    print("Starting Project Solaris evaluation...")
+    print("Starting ArkaNetra evaluation...")
     
     # Load configuration
     with open(config_path, 'r') as f:
@@ -220,7 +220,7 @@ def generate_documentation(evaluation_results: dict, config: dict, output_path: 
 
 def main():
     """Main entry point."""
-    parser = argparse.ArgumentParser(description='Project Solaris Evaluation Script')
+    parser = argparse.ArgumentParser(description='ArkaNetra Evaluation Script')
     parser.add_argument('--config', default='configs/mvp.yaml', help='Path to configuration file')
     parser.add_argument('--output', default='reports/evaluation', help='Output directory')
     

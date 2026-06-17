@@ -35,7 +35,7 @@ class TestCrossCalibration:
         return pd.DataFrame({"timestamp": timestamps, "hard_xray_flux": flux})
 
     def test_solexs_vs_goes_returns_result(self):
-        from solaris.data.cross_calibration import cross_calibrate_solexs_vs_goes
+        from arkanetra.data.cross_calibration import cross_calibrate_solexs_vs_goes
         solexs = self._make_solexs_df()
         goes = self._make_goes_df()
         result = cross_calibrate_solexs_vs_goes(solexs, goes)
@@ -44,14 +44,14 @@ class TestCrossCalibration:
         assert result.is_experimental is True
 
     def test_solexs_vs_goes_has_correlation(self):
-        from solaris.data.cross_calibration import cross_calibrate_solexs_vs_goes
+        from arkanetra.data.cross_calibration import cross_calibrate_solexs_vs_goes
         solexs = self._make_solexs_df()
         goes = self._make_goes_df()
         result = cross_calibrate_solexs_vs_goes(solexs, goes)
         assert -1 <= result.correlation_coefficient <= 1
 
     def test_solexs_vs_goes_insufficient_data(self):
-        from solaris.data.cross_calibration import cross_calibrate_solexs_vs_goes
+        from arkanetra.data.cross_calibration import cross_calibrate_solexs_vs_goes
         solexs = pd.DataFrame({"timestamp": pd.to_datetime([], utc=True), "soft_xray_flux": []})
         goes = pd.DataFrame({"timestamp": pd.to_datetime([], utc=True), "long_wavelength_flux": []})
         result = cross_calibrate_solexs_vs_goes(solexs, goes)
@@ -59,7 +59,7 @@ class TestCrossCalibration:
         assert len(result.notes) > 0
 
     def test_hel1os_vs_rhessi_returns_result(self):
-        from solaris.data.cross_calibration import cross_calibrate_hel1os_vs_reference
+        from arkanetra.data.cross_calibration import cross_calibrate_hel1os_vs_reference
         hel1os = self._make_hel1os_df()
         rhessi = self._make_rhessi_df()
         result = cross_calibrate_hel1os_vs_reference(hel1os, rhessi, reference_instrument="RHESSI")
@@ -68,21 +68,21 @@ class TestCrossCalibration:
         assert result.is_experimental is True
 
     def test_hel1os_vs_rhessi_has_gain_factor(self):
-        from solaris.data.cross_calibration import cross_calibrate_hel1os_vs_reference
+        from arkanetra.data.cross_calibration import cross_calibrate_hel1os_vs_reference
         hel1os = self._make_hel1os_df()
         rhessi = self._make_rhessi_df()
         result = cross_calibrate_hel1os_vs_reference(hel1os, rhessi)
         assert result.gain_factor > 0
 
     def test_hel1os_vs_rhessi_insufficient_data(self):
-        from solaris.data.cross_calibration import cross_calibrate_hel1os_vs_reference
+        from arkanetra.data.cross_calibration import cross_calibrate_hel1os_vs_reference
         hel1os = pd.DataFrame({"timestamp": pd.to_datetime([], utc=True), "hard_xray_flux": []})
         ref = pd.DataFrame({"timestamp": pd.to_datetime([], utc=True), "hard_xray_flux": []})
         result = cross_calibrate_hel1os_vs_reference(hel1os, ref)
         assert result.n_overlapping_points == 0
 
     def test_to_dict(self):
-        from solaris.data.cross_calibration import cross_calibrate_solexs_vs_goes
+        from arkanetra.data.cross_calibration import cross_calibrate_solexs_vs_goes
         solexs = self._make_solexs_df()
         goes = self._make_goes_df()
         result = cross_calibrate_solexs_vs_goes(solexs, goes)
@@ -93,7 +93,7 @@ class TestCrossCalibration:
         assert "notes" in d
 
     def test_generate_calibration_report(self):
-        from solaris.data.cross_calibration import (
+        from arkanetra.data.cross_calibration import (
             cross_calibrate_solexs_vs_goes,
             cross_calibrate_hel1os_vs_reference,
             generate_calibration_report,
@@ -113,37 +113,37 @@ class TestCrossCalibration:
 
 class TestAdityaL1Download:
     def test_download_solexs_returns_dataframe(self):
-        from solaris.data.solexs import download_solexs_data
+        from arkanetra.data.solexs import download_solexs_data
         df = download_solexs_data()
         assert isinstance(df, pd.DataFrame)
 
     def test_download_hel1os_returns_dataframe(self):
-        from solaris.data.hel1os import download_hel1os_data
+        from arkanetra.data.hel1os import download_hel1os_data
         df = download_hel1os_data()
         assert isinstance(df, pd.DataFrame)
 
     def test_download_solexs_has_expected_columns(self):
-        from solaris.data.solexs import download_solexs_data
+        from arkanetra.data.solexs import download_solexs_data
         df = download_solexs_data()
         assert "timestamp" in df.columns
         assert "soft_xray_flux" in df.columns
         assert "data_quality" in df.columns
 
     def test_download_hel1os_has_expected_columns(self):
-        from solaris.data.hel1os import download_hel1os_data
+        from arkanetra.data.hel1os import download_hel1os_data
         df = download_hel1os_data()
         assert "timestamp" in df.columns
         assert "hard_xray_flux" in df.columns
         assert "data_quality" in df.columns
 
     def test_download_solexs_graceful_failure(self):
-        from solaris.data.solexs import download_solexs_data
+        from arkanetra.data.solexs import download_solexs_data
         df = download_solexs_data(source="nonexistent_source")
         assert isinstance(df, pd.DataFrame)
         assert len(df) == 0
 
     def test_download_hel1os_graceful_failure(self):
-        from solaris.data.hel1os import download_hel1os_data
+        from arkanetra.data.hel1os import download_hel1os_data
         df = download_hel1os_data(source="nonexistent_source")
         assert isinstance(df, pd.DataFrame)
         assert len(df) == 0

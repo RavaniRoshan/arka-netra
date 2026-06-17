@@ -9,7 +9,7 @@ import streamlit as st
 
 
 ROOT = Path(__file__).resolve().parents[1]
-PREDICTIONS = ROOT / "reports" / "predictions" / "solaris_mvp_predictions.parquet"
+PREDICTIONS = ROOT / "reports" / "predictions" / "arkanetra_mvp_predictions.parquet"
 METRICS = ROOT / "reports" / "metrics.csv"
 TOP_FEATURES = ROOT / "reports" / "top_features.json"
 ATTENTION = ROOT / "reports" / "attention_matrix.csv"
@@ -24,7 +24,7 @@ EVENT_SUMMARY_EXPORT = ROOT / "reports" / "event_summary_export.md"
 ALERT_POLICY_CONFIG = ROOT / "reports" / "alert_policy_config.json"
 
 
-st.set_page_config(page_title="Project Solaris", layout="wide")
+st.set_page_config(page_title="ArkaNetra", layout="wide")
 st.markdown(
     """
     <style>
@@ -34,7 +34,7 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
-st.title("Project Solaris Mission Console")
+st.title("ArkaNetra Mission Console")
 st.caption("Physics-informed multimodal solar flare early-warning MVP")
 
 # Phase 6: Navigation tabs
@@ -275,7 +275,7 @@ if ANALYSIS_DATA.exists():
                 lines.append("**Data Source:** ISRO Aditya-L1 mission telemetry")
                 lines.append("")
                 lines.append("Dual-band observation from India's Aditya-L1 mission at Sun-Earth L1 point "
-                            "aligns with the Solaris physics-informed thesis.")
+                            "aligns with the ArkaNetra physics-informed thesis.")
                 evidence = "\n".join(lines)
             elif "synthetic" in data_mode or mission_mode == "synthetic":
                 evidence = (

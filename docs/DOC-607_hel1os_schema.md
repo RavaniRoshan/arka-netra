@@ -1,13 +1,13 @@
 # DOC-607: HEL1OS Schema Reference
 
-**Project:** Project Solaris  
+**Project:** ArkaNetra  
 **Date:** 2026-06-16
 
 ---
 
 ## Overview
 
-HEL1OS (HELiospheric LOw-energy Spectrometer) is the hard X-ray instrument aboard India's Aditya-L1 mission. This document defines the expected HEL1OS data schema for the Solaris pipeline.
+HEL1OS (HELiospheric LOw-energy Spectrometer) is the hard X-ray instrument aboard India's Aditya-L1 mission. This document defines the expected HEL1OS data schema for the ArkaNetra pipeline.
 
 ---
 
@@ -53,16 +53,16 @@ The HEL1OS adapter accepts CSV files with the following columns:
 
 ---
 
-## Mapping to Solaris Schema
+## Mapping to ArkaNetra Schema
 
-HEL1OS data is mapped to the Solaris hard X-ray schema:
+HEL1OS data is mapped to the ArkaNetra hard X-ray schema:
 
 ```
-HEL1OS timestamp        →  Solaris timestamp
-HEL1OS hard_xray_flux   →  Solaris hard_xray_flux
-HEL1OS energy_band      →  Solaris hard_energy_band (metadata)
-HEL1OS data_quality     →  Solaris data_quality
-HEL1OS channel          →  Solaris hard_instrument = "HEL1OS"
+HEL1OS timestamp        →  ArkaNetra timestamp
+HEL1OS hard_xray_flux   →  ArkaNetra hard_xray_flux
+HEL1OS energy_band      →  ArkaNetra hard_energy_band (metadata)
+HEL1OS data_quality     →  ArkaNetra data_quality
+HEL1OS channel          →  ArkaNetra hard_instrument = "HEL1OS"
 ```
 
 The pipeline normalizes HEL1OS to RHESSI-equivalent flux to maintain feature compatibility.

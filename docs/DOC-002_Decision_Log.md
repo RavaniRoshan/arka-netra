@@ -1,4 +1,4 @@
-# DOC-002: Project Solaris Decision Log
+# DOC-002: ArkaNetra Decision Log
 
 | Date | Decision | Rationale | Consequence |
 | --- | --- | --- | --- |
@@ -6,9 +6,9 @@
 | 2026-06-16 | Use GOES XRS as soft X-ray proxy and RHESSI/Fermi-style hard X-ray proxy boundary. | This mirrors the SoLEXS + HEL1OS future architecture while remaining runnable now. | Synthetic proxy data is included for immediate demo; real adapters are scaffolded. |
 | 2026-06-16 | Ship executable MVP without mandatory PyTorch dependency. | The local runtime did not include PyTorch and installing it would slow first delivery. | The current model is a sklearn/numpy surrogate for the planned Dual-Branch Cross-Attention GRU; PyTorch implementation is the next ML milestone. |
 | 2026-06-16 | Treat SEP output as contextual only. | The MVP has no validated particle data. | Dashboard language avoids unsupported SEP forecasting claims. |
-| 2026-06-16 | Use NOAA SWPC GOES XRS JSON API as primary real data source with bundled sample CSV fallback. | Public, free, no auth, matches Solaris soft X-ray schema. | Pipeline gains a `data.mode` switch; GOES mode downloads from SWPC or loads bundled sample; synthetic mode remains the default and is always available. |
+| 2026-06-16 | Use NOAA SWPC GOES XRS JSON API as primary real data source with bundled sample CSV fallback. | Public, free, no auth, matches ArkaNetra soft X-ray schema. | Pipeline gains a `data.mode` switch; GOES mode downloads from SWPC or loads bundled sample; synthetic mode remains the default and is always available. |
 | 2026-06-16 | Use RHESSI as primary hard X-ray proxy with Fermi GBM as fallback. Add astropy for FITS reading. | RHESSI is the gold standard for solar hard X-ray observations and covers the selected 2017-09-06 X9.3 event. Fermi GBM covers a broader time range. astropy is the standard Python FITS library. | Pipeline gains real hard X-ray flux; hardness_ratio and hard X-ray features become meaningful; bundled RHESSI sample CSV is available for offline use. |
-| 2026-06-16 | Use NOAA SWPC GOES XRS JSON API as primary real data source. | Public, free, no auth, matches Solaris schema. | Pipeline gains a `data.mode` switch; sample CSV bundled for offline fallback. |
+| 2026-06-16 | Use NOAA SWPC GOES XRS JSON API as primary real data source. | Public, free, no auth, matches ArkaNetra schema. | Pipeline gains a `data.mode` switch; sample CSV bundled for offline fallback. |
 | 2026-06-16 | Phase 3 Aditya-L1 Payload Integration Plan approved. | DOC-601 mandates mission-aligned architecture after Phase 2 proxy data complete. | SoLEXS and HEL1OS adapters implemented; pipeline gains `data.mode=aditya_l1`; dashboard provenance updated; 60 tests pass. |
 | 2026-06-16 | Phase 4 Operational Decision-Support implemented. | DOC-601 mandates alert lifecycle, audit logs, staleness detection, and API after Phase 3. | Alert lifecycle, audit provenance, staleness detection, JSONL export, FastAPI endpoint, reliability tests implemented; 79 tests pass. |
 | 2026-06-16 | Phase 5 Space-Weather Platform implemented. | DOC-601 mandates SEP modeling, radiation context, archive/monitoring, registry, operating handbook, publication materials after Phase 4. | SEP risk module, satellite risk context, model registry, forecast archive, drift monitoring, retraining triggers, DOC-611, DOC-612, DOC-613 implemented; 79 tests pass. |

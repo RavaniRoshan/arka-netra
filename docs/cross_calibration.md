@@ -1,6 +1,6 @@
 # Aditya-L1 Cross-Calibration Documentation
 
-**Project:** Project Solaris  
+**Project:** ArkaNetra  
 **Date:** 2026-06-17  
 **Status:** Phase 7 — Experimental
 
@@ -112,7 +112,7 @@ Where:
 ## Usage
 
 ```python
-from solaris.data.cross_calibration import (
+from arkanetra.data.cross_calibration import (
     cross_calibrate_solexs_vs_goes,
     cross_calibrate_hel1os_vs_reference,
     generate_calibration_report,

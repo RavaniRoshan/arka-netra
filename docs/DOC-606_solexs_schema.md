@@ -1,13 +1,13 @@
 # DOC-606: SoLEXS Schema Reference
 
-**Project:** Project Solaris  
+**Project:** ArkaNetra  
 **Date:** 2026-06-16
 
 ---
 
 ## Overview
 
-SoLEXS (Solar Low-Energy X-ray Spectrometer) is the soft X-ray instrument aboard India's Aditya-L1 mission. This document defines the expected SoLEXS data schema for the Solaris pipeline.
+SoLEXS (Solar Low-Energy X-ray Spectrometer) is the soft X-ray instrument aboard India's Aditya-L1 mission. This document defines the expected SoLEXS data schema for the ArkaNetra pipeline.
 
 ---
 
@@ -52,16 +52,16 @@ The SoLEXS adapter accepts CSV files with the following columns:
 
 ---
 
-## Mapping to Solaris Schema
+## Mapping to ArkaNetra Schema
 
-SoLEXS data is mapped to the Solaris soft X-ray schema:
+SoLEXS data is mapped to the ArkaNetra soft X-ray schema:
 
 ```
-SoLEXS timestamp        →  Solaris timestamp
-SoLEXS soft_xray_flux   →  Solaris soft_xray_flux
-SoLEXS energy_band      →  Solaris soft_channel (metadata)
-SoLEXS data_quality      →  Solaris data_quality
-SoLEXS SXS/XRS channel   →  Solaris soft_instrument = "SOLEXS"
+SoLEXS timestamp        →  ArkaNetra timestamp
+SoLEXS soft_xray_flux   →  ArkaNetra soft_xray_flux
+SoLEXS energy_band      →  ArkaNetra soft_channel (metadata)
+SoLEXS data_quality      →  ArkaNetra data_quality
+SoLEXS SXS/XRS channel   →  ArkaNetra soft_instrument = "SOLEXS"
 ```
 
 ---

@@ -4,12 +4,12 @@
 
 ## Context
 
-Solaris Phase 2 requires real hard X-ray flux to make the multimodal fusion meaningful. The architecture supports two sources simultaneously:
+ArkaNetra Phase 2 requires real hard X-ray flux to make the multimodal fusion meaningful. The architecture supports two sources simultaneously:
 
 1. **RHESSI** — primary bundled dataset + optional FITS download (astropy)
 2. **Fermi GBM** — live CTIME/CSPEC FITS download (astropy)
 
-Both sources feed a single `build_hard_xray_data()` entry point in `solaris/data/hard_xray_proxy.py`, with the same output contract: `timestamp + hard_xray_flux + data_quality`.
+Both sources feed a single `build_hard_xray_data()` entry point in `arkanetra/data/hard_xray_proxy.py`, with the same output contract: `timestamp + hard_xray_flux + data_quality`.
 
 ---
 

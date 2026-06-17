@@ -1,8 +1,8 @@
 from __future__ import annotations
 
-from solaris.config import load_config
-from solaris.pipeline import build_dataset
-from solaris.models import train_models
+from arkanetra.config import load_config
+from arkanetra.pipeline import build_dataset
+from arkanetra.models import train_models
 
 
 def test_train_models_returns_metrics():

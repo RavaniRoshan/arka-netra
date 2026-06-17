@@ -1,6 +1,6 @@
 # DOC-706: Phase 6 Verification Report
 
-**Project:** Project Solaris  
+**Project:** ArkaNetra  
 **Phase:** 6 — Operational Platform Hardening  
 **Date:** 2026-06-17  
 **Status:** COMPLETE
@@ -53,8 +53,8 @@
 | Dockerfile with PYTHONPATH | ✅ `ENV PYTHONPATH=/app/src` in Dockerfile |
 | HEALTHCHECK instruction | ✅ `HEALTHCHECK --interval=30s --timeout=5s` hitting `/health` |
 | docker-compose health check | ✅ API service health check in docker-compose.yml |
-| Streamlit path fixed | ✅ `app/streamlit_app.py` (was `src/solaris/app/streamlit_app.py`) |
-| Environment variables for config | ✅ `SOLARIS_API_KEY`, `SOLARIS_RATE_LIMIT_RPM` via env |
+| Streamlit path fixed | ✅ `app/streamlit_app.py` (was `src/arkanetra/app/streamlit_app.py`) |
+| Environment variables for config | ✅ `ARKANETRA_API_KEY`, `ARKANETRA_RATE_LIMIT_RPM` via env |
 
 ### 4. CI runs lint + tests on push
 
@@ -62,7 +62,7 @@
 |-------------|--------|
 | GitHub Actions workflow | ✅ `.github/workflows/ci.yml` |
 | Lint job (ruff) | ✅ `ruff check src/ tests/` |
-| Type check (mypy) | ✅ `mypy src/solaris --ignore-missing-imports` |
+| Type check (mypy) | ✅ `mypy src/arkanetra --ignore-missing-imports` |
 | Test job (pytest) | ✅ Excludes slow GRU training tests |
 | Docker build job | ✅ Builds image and tests health endpoint |
 | Triggered on push/PR to main | ✅ `on: push/pull_request` |
@@ -73,7 +73,7 @@
 
 | File | Change |
 |------|--------|
-| `src/solaris/api/prediction_api.py` | **Updated:** API key auth, rate limiting, CORS, input validation, health bypass, version bump to 0.2.0 |
+| `src/arkanetra/api/prediction_api.py` | **Updated:** API key auth, rate limiting, CORS, input validation, health bypass, version bump to 0.2.0 |
 | `Dockerfile` | **Fixed:** Added `ENV PYTHONPATH=/app/src`, added `HEALTHCHECK`, fixed CMD module path |
 | `docker-compose.yml` | **Fixed:** Streamlit path corrected, health check added, env vars for API key and rate limit |
 | `.github/workflows/ci.yml` | **NEW:** CI pipeline with lint, test, and Docker build jobs |
@@ -89,7 +89,7 @@
 |---------|---------------|
 | API key via `Authorization: Bearer <key>` | ✅ |
 | API key via `X-API-Key` header | ✅ |
-| Configurable via `SOLARIS_API_KEY` env var | ✅ |
+| Configurable via `ARKANETRA_API_KEY` env var | ✅ |
 | Disabled when env var empty (dev mode) | ✅ |
 | 401 response with clear error message | ✅ |
 
@@ -98,7 +98,7 @@
 | Feature | Implementation |
 |---------|---------------|
 | Per-IP sliding window | ✅ `RateLimiter` class |
-| Configurable via `SOLARIS_RATE_LIMIT_RPM` | ✅ Default 60 RPM |
+| Configurable via `ARKANETRA_RATE_LIMIT_RPM` | ✅ Default 60 RPM |
 | `X-RateLimit-Limit` header | ✅ |
 | `X-RateLimit-Remaining` header | ✅ |
 | `429 Too Many Requests` response | ✅ |
@@ -121,10 +121,10 @@
 | Issue | Before | After |
 |-------|--------|-------|
 | PYTHONPATH missing in Dockerfile | Not set | `ENV PYTHONPATH=/app/src` |
-| CMD module path wrong | `src.solaris.api.prediction_api:app` | `solaris.api.prediction_api:app` |
-| Streamlit path wrong | `src/solaris/app/streamlit_app.py` | `app/streamlit_app.py` |
+| CMD module path wrong | `src.arkanetra.api.prediction_api:app` | `arkanetra.api.prediction_api:app` |
+| Streamlit path wrong | `src/arkanetra/app/streamlit_app.py` | `app/streamlit_app.py` |
 | No HEALTHCHECK | Missing | `HEALTHCHECK` in Dockerfile + docker-compose |
-| No env vars for config | Hardcoded | `SOLARIS_API_KEY`, `SOLARIS_RATE_LIMIT_RPM` |
+| No env vars for config | Hardcoded | `ARKANETRA_API_KEY`, `ARKANETRA_RATE_LIMIT_RPM` |
 
 ---
 

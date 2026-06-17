@@ -5,8 +5,8 @@ from pathlib import Path
 
 import pandas as pd
 
-from solaris.config import ROOT, load_config
-from solaris.pipeline import build_dataset, make_predictions, run_mvp
+from arkanetra.config import ROOT, load_config
+from arkanetra.pipeline import build_dataset, make_predictions, run_mvp
 
 
 def test_run_mvp_writes_evidence_artifacts():

@@ -9,7 +9,7 @@ from fastapi.testclient import TestClient
 
 @pytest.fixture
 def client():
-    from solaris.api.prediction_api import app
+    from arkanetra.api.prediction_api import app
     return TestClient(app)
 
 
@@ -32,27 +32,27 @@ class TestHealthEndpoint:
 
 class TestRateLimiter:
     def test_allows_requests_under_limit(self):
-        from solaris.api.prediction_api import RateLimiter
+        from arkanetra.api.prediction_api import RateLimiter
         limiter = RateLimiter(max_requests=5, window_seconds=60)
         for _ in range(5):
             assert limiter.is_allowed("test_client") is True
 
     def test_blocks_requests_over_limit(self):
-        from solaris.api.prediction_api import RateLimiter
+        from arkanetra.api.prediction_api import RateLimiter
         limiter = RateLimiter(max_requests=3, window_seconds=60)
         for _ in range(3):
             limiter.is_allowed("test_client")
         assert limiter.is_allowed("test_client") is False
 
     def test_remaining_decreases(self):
-        from solaris.api.prediction_api import RateLimiter
+        from arkanetra.api.prediction_api import RateLimiter
         limiter = RateLimiter(max_requests=10, window_seconds=60)
         assert limiter.remaining("test_client") == 10
         limiter.is_allowed("test_client")
         assert limiter.remaining("test_client") == 9
 
     def test_separate_clients_independent(self):
-        from solaris.api.prediction_api import RateLimiter
+        from arkanetra.api.prediction_api import RateLimiter
         limiter = RateLimiter(max_requests=2, window_seconds=60)
         limiter.is_allowed("client_a")
         limiter.is_allowed("client_a")
@@ -62,12 +62,12 @@ class TestRateLimiter:
 
 class TestAuthentication:
     def test_no_api_key_allows_all(self, client):
-        with patch("solaris.api.prediction_api.API_KEY", ""):
+        with patch("arkanetra.api.prediction_api.API_KEY", ""):
             response = client.get("/predictions")
             assert response.status_code == 200
 
     def test_valid_api_key_bearer(self, client):
-        with patch("solaris.api.prediction_api.API_KEY", "test-secret-key"):
+        with patch("arkanetra.api.prediction_api.API_KEY", "test-secret-key"):
             response = client.get(
                 "/predictions",
                 headers={"Authorization": "Bearer test-secret-key"},
@@ -75,7 +75,7 @@ class TestAuthentication:
             assert response.status_code == 200
 
     def test_valid_api_key_header(self, client):
-        with patch("solaris.api.prediction_api.API_KEY", "test-secret-key"):
+        with patch("arkanetra.api.prediction_api.API_KEY", "test-secret-key"):
             response = client.get(
                 "/predictions",
                 headers={"X-API-Key": "test-secret-key"},
@@ -83,7 +83,7 @@ class TestAuthentication:
             assert response.status_code == 200
 
     def test_invalid_api_key_returns_401(self, client):
-        with patch("solaris.api.prediction_api.API_KEY", "test-secret-key"):
+        with patch("arkanetra.api.prediction_api.API_KEY", "test-secret-key"):
             response = client.get(
                 "/predictions",
                 headers={"Authorization": "Bearer wrong-key"},
@@ -91,12 +91,12 @@ class TestAuthentication:
             assert response.status_code == 401
 
     def test_missing_api_key_returns_401(self, client):
-        with patch("solaris.api.prediction_api.API_KEY", "test-secret-key"):
+        with patch("arkanetra.api.prediction_api.API_KEY", "test-secret-key"):
             response = client.get("/predictions")
             assert response.status_code == 401
 
     def test_health_bypasses_auth_even_with_key(self, client):
-        with patch("solaris.api.prediction_api.API_KEY", "test-secret-key"):
+        with patch("arkanetra.api.prediction_api.API_KEY", "test-secret-key"):
             response = client.get("/health")
             assert response.status_code == 200
 

@@ -6,8 +6,8 @@ import numpy as np
 
 import pytest
 
-from solaris.config import ROOT
-from solaris.data.hel1os import (
+from arkanetra.config import ROOT
+from arkanetra.data.hel1os import (
     load_hel1os_csv,
     _add_quality_flags,
     _resample_to_cadence,
